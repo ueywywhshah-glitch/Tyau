@@ -3,6 +3,12 @@
 
   "settings_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
     "$screen_content": "settings_start.settings_screen_content"
   },
 
@@ -22,11 +28,11 @@
     "offset": [ 20, 0 ],
     "controls": [
       { "fill": { "type": "panel", "size": [ "100%", "fill" ] } },
-      { "video@settings_start.cat_row": { "$button_text": "Video", "$category_binding": "#video_tab", "$pressed_button_name": "button.video_tab" } },
+      { "video@settings_start.cat_row": { "$button_text": "Video", "$pressed_button_name": "button.video_tab" } },
       { "p1": { "type": "panel", "size": [ "100%", 2 ] } },
-      { "audio@settings_start.cat_row": { "$button_text": "Audio", "$category_binding": "#audio_tab", "$pressed_button_name": "button.audio_tab" } },
+      { "audio@settings_start.cat_row": { "$button_text": "Audio", "$pressed_button_name": "button.audio_tab" } },
       { "p2": { "type": "panel", "size": [ "100%", 2 ] } },
-      { "ctrl@settings_start.cat_row": { "$button_text": "Controls", "$category_binding": "#controls_tab", "$pressed_button_name": "button.controls_tab" } },
+      { "ctrl@settings_start.cat_row": { "$button_text": "Controls", "$pressed_button_name": "button.controls_tab" } },
       { "fill2": { "type": "panel", "size": [ "100%", "fill" ] } }
     ]
   },
@@ -35,11 +41,112 @@
     "type": "panel",
     "size": [ "100%", 30 ],
     "controls": [
-      { 
-        "b@common_buttons.simple_button": {
-          "size": [ "100%", "100%" ],
-          "$button_size": [ "100%", "100%" ]
-        } 
+      { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } }
+    ]
+  },
+
+  "video_settings_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 140px", "100% - 40px" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "controls": [
+      { "fov_slider@settings_start.slider_row": { "$option_label": "options.fov", "$slider_binding": "#fov" } },
+      { "gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+      { "render_dist@settings_start.slider_row": { "$option_label": "options.renderdistance", "$slider_binding": "#render_distance" } },
+      { "gap2": { "type": "panel", "size": [ "100%", 10 ] } },
+      { "fancy_toggle@settings_start.toggle_row": { "$option_label": "options.fancygraphics", "$toggle_binding": "#fancy_graphics" } }
+    ]
+  },
+
+  "audio_settings_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 140px", "100% - 40px" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "controls": [
+      { "music_slider@settings_start.slider_row": { "$option_label": "options.music", "$slider_binding": "#music_volume" } },
+      { "gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+      { "sound_slider@settings_start.slider_row": { "$option_label": "options.sound", "$slider_binding": "#sound_volume" } }
+    ]
+  },
+
+  "controls_settings_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 140px", "100% - 40px" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "controls": [
+      { "sensitivity_slider@settings_start.slider_row": { "$option_label": "options.sensitivity", "$slider_binding": "#mouse_sensitivity" } }
+    ]
+  },
+
+  "slider_row": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "controls": [
+      {
+        "bg@common_buttons.client_button_panel": {
+          "alpha": 0.2,
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "label": {
+          "type": "label",
+          "text": "$option_label",
+          "offset": [ 10, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "color": [ 1, 1, 1 ],
+          "layer": 2
+        }
+      },
+      {
+        "slider@common_buttons.premium_slider": {
+          "size": [ 120, 16 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -10, 0 ],
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  "toggle_row": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "controls": [
+      {
+        "bg@common_buttons.client_button_panel": {
+          "alpha": 0.2,
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "label": {
+          "type": "label",
+          "text": "$option_label",
+          "offset": [ 10, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "color": [ 1, 1, 1 ],
+          "layer": 2
+        }
+      },
+      {
+        "toggle@common_buttons.premium_toggle": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -15, 0 ],
+          "layer": 2
+        }
       }
     ]
   }
