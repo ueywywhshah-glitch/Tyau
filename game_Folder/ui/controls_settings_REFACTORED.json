@@ -1,0 +1,308 @@
+{
+  "namespace": "controls_settings",
+
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+
+  "$panel_bg_alpha": 0.15,
+  "$header_height": 30,
+  "$spacing_gap": 4,
+  "$spacing_medium": 8,
+  "$spacing_large": 12,
+  "$back_button_width": 100,
+  "$back_button_height": 30,
+
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_accent_cyan": [ 0.7, 1, 1 ],
+
+  "controls_settings_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "controls_settings.controls_screen_content"
+  },
+
+  "controls_screen_content": {
+    "type": "panel",
+    "size": [ "$safezone_width", "$safezone_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "back_button_panel@controls_settings.back_button_section": { "layer": 5 } },
+      { "main_content@controls_settings.main_controls_panel": { "layer": 6 } }
+    ]
+  },
+
+  "back_button_section": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 10 ],
+    "layer": 5,
+    "controls": [
+      {
+        "back_btn@common_buttons.simple_button": {
+          "size": [ "$back_button_width", "$back_button_height" ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 10, 0 ],
+          "$button_text": "Back",
+          "$button_size": [ "$back_button_width", "$back_button_height" ],
+          "$pressed_button_name": "button.controls_back",
+          "$focus_id": "controls_back_button"
+        }
+      }
+    ]
+  },
+
+  "main_controls_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 50px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 45 ],
+    "layer": 6,
+    "controls": [
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": [ "100%", "$header_height" ],
+          "layer": 7,
+          "controls": [
+            {
+              "title_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": "$panel_bg_alpha",
+                "layer": 40
+              }
+            },
+            {
+              "title_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 41
+              }
+            },
+            {
+              "title_text": {
+                "type": "label",
+                "text": "WOLF CLIENT | CONTROLS",
+                "color": "$color_cyan",
+                "offset": [ 15, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 42
+              }
+            }
+          ]
+        }
+      },
+      { "title_gap": { "type": "panel", "size": [ "100%", "$spacing_medium" ], "layer": 1 } },
+      {
+        "content_container": {
+          "type": "stack_panel",
+          "size": [ "95%c", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 0 ],
+          "layer": 8,
+          "controls": [
+            { "movement_header@controls_settings.section_header": { "$section_title": "MOVEMENT CONTROLS" } },
+            { "mov_gap1": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "forward_key@controls_settings.keybind_item": { "$bind_label": "Forward", "$bind_action": "#forward_key", "$focus_id": "ctrl_forward" } },
+            { "mov_gap2": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "backward_key@controls_settings.keybind_item": { "$bind_label": "Backward", "$bind_action": "#backward_key", "$focus_id": "ctrl_backward" } },
+            { "mov_gap3": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "left_key@controls_settings.keybind_item": { "$bind_label": "Strafe Left", "$bind_action": "#left_key" } },
+            { "mov_gap4": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "right_key@controls_settings.keybind_item": { "$bind_label": "Strafe Right", "$bind_action": "#right_key" } },
+            { "mov_spacer": { "type": "panel", "size": [ "100%", "$spacing_large" ], "layer": 1 } },
+            { "action_header@controls_settings.section_header": { "$section_title": "ACTION CONTROLS" } },
+            { "act_gap1": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "attack_key@controls_settings.keybind_item": { "$bind_label": "Attack", "$bind_action": "#attack_key" } },
+            { "act_gap2": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "use_key@controls_settings.keybind_item": { "$bind_label": "Use Item", "$bind_action": "#use_key" } },
+            { "act_spacer": { "type": "panel", "size": [ "100%", "$spacing_large" ], "layer": 1 } },
+            { "mouse_header@controls_settings.section_header": { "$section_title": "MOUSE & CAMERA" } },
+            { "mouse_gap1": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "sensitivity@controls_settings.slider_item": { "$item_label": "Mouse Sensitivity", "$slider_binding": "#mouse_sensitivity" } },
+            { "mouse_gap2": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "invert_y@controls_settings.toggle_item": { "$item_label": "Invert Y-Axis", "$toggle_binding": "#invert_y_axis" } },
+            { "mouse_gap3": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+            { "smooth_camera@controls_settings.toggle_item": { "$item_label": "Smooth Camera", "$toggle_binding": "#smooth_camera" } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "section_header": {
+    "type": "panel",
+    "size": [ "100%", 22 ],
+    "layer": 9,
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.25,
+          "layer": 50
+        }
+      },
+      {
+        "header_accent": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "nineslice_size": 4.0,
+          "size": [ 4, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 51
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "$section_title",
+          "color": "$color_accent_cyan",
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "keybind_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "layer": 8,
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 50
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$bind_label",
+          "color": "$color_white",
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 51,
+          "size": [ 150, "100%" ]
+        }
+      },
+      {
+        "keybind_button@common_buttons.simple_button": {
+          "size": [ 120, 24 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "$button_text": "$bind_action",
+          "$button_size": [ 120, 24 ],
+          "$button_alpha_default": 0.3,
+          "$button_alpha_hover": 0.6,
+          "$button_alpha_pressed": 0.9,
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "slider_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "layer": 8,
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 50
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$item_label",
+          "color": "$color_white",
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 51
+        }
+      },
+      {
+        "slider@common_buttons.premium_slider": {
+          "size": [ 140, 14 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "toggle_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "layer": 8,
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 50
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$item_label",
+          "color": "$color_white",
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 51
+        }
+      },
+      {
+        "toggle@common_buttons.premium_toggle": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "layer": 52
+        }
+      }
+    ]
+  }
+}
