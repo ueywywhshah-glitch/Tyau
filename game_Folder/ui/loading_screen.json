@@ -6,35 +6,13 @@
   "$loading_bar_corner": 3,
 
   "loading_screen@common.base_screen": {
-    "$screen_bg_content": "loading.screen_background",
+    "$screen_bg_content": "loading.screen_background_wrapper",
     "$screen_content": "loading.screen_content"
   },
 
-  "screen_background": {
-    "type": "panel",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "dark_background": {
-          "type": "image",
-          "texture": "textures/ui/White",
-          "size": [ "100%", "100%" ],
-          "color": [ 0.05, 0.05, 0.08 ],
-          "alpha": 1.0,
-          "layer": 1
-        }
-      },
-      {
-        "cyan_vignette": {
-          "type": "image",
-          "texture": "textures/gui/client/btn_default",
-          "size": [ "100%", "100%" ],
-          "color": "$color_cyan",
-          "alpha": 0.08,
-          "layer": 2
-        }
-      }
-    ]
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "layer": 1
   },
 
   "progress_bar_background": {
