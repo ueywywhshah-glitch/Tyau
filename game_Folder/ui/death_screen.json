@@ -1,0 +1,293 @@
+{
+  "namespace": "death",
+
+  "$death_panel_width": "45%c",
+  "$death_panel_height": "60%c",
+  "$death_button_height": 40,
+
+  "death_screen@common.base_screen": {
+    "$screen_bg_content": "death.screen_background_wrapper",
+    "$screen_content": "death.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.7,
+    "layer": 1
+  },
+
+  "death_panel": {
+    "type": "panel",
+    "size": [ "$death_panel_width", "$death_panel_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "frame_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.9,
+          "layer": 40
+        }
+      },
+      {
+        "frame_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.95,
+          "layer": 39
+        }
+      },
+      {
+        "content_stack": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "calc(100% - 30px)", "calc(100% - 30px)" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 42,
+          "controls": [
+            {
+              "wolf_logo": {
+                "type": "label",
+                "text": "🐺",
+                "color": "$color_cyan",
+                "size": [ "100%", "default" ],
+                "font_size": "large",
+                "shadow": true,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [ 0, 0 ],
+                "layer": 42
+              }
+            },
+            {
+              "logo_spacing": {
+                "type": "panel",
+                "size": [ "100%", 8 ],
+                "layer": 1
+              }
+            },
+            {
+              "wolf_client_text": {
+                "type": "label",
+                "text": "WOLF CLIENT",
+                "color": "$color_cyan",
+                "size": [ "100%", "default" ],
+                "font_size": "large",
+                "shadow": true,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42
+              }
+            },
+            {
+              "title_spacing": {
+                "type": "panel",
+                "size": [ "100%", 12 ],
+                "layer": 1
+              }
+            },
+            {
+              "death_title": {
+                "type": "label",
+                "text": "YOU DIED",
+                "color": "$color_white",
+                "size": [ "100%", "default" ],
+                "font_size": "large",
+                "shadow": true,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42
+              }
+            },
+            {
+              "death_reason_spacing": {
+                "type": "panel",
+                "size": [ "100%", 10 ],
+                "layer": 1
+              }
+            },
+            {
+              "death_reason": {
+                "type": "label",
+                "text": "#death_cause",
+                "color": "$color_white_dim",
+                "size": [ "100%", "default" ],
+                "font_size": "small",
+                "shadow": true,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42,
+                "bindings": [
+                  {
+                    "binding_name": "#death_cause"
+                  }
+                ]
+              }
+            },
+            {
+              "button_spacing": {
+                "type": "panel",
+                "size": [ "100%", 15 ],
+                "layer": 1
+              }
+            },
+            {
+              "respawn_button@common_buttons.light_text_button": {
+                "size": [ "100%", "$death_button_height" ],
+                "$button_size": [ "100%", "$death_button_height" ],
+                "$button_text": "Respawn",
+                "$pressed_button_name": "button.death_respawn",
+                "$focus_id": "death_respawn",
+                "$focus_change_down": "death_menu",
+                "layer": 42
+              }
+            },
+            {
+              "button_spacing_2": {
+                "type": "panel",
+                "size": [ "100%", 8 ],
+                "layer": 1
+              }
+            },
+            {
+              "menu_button@common_buttons.light_text_button": {
+                "size": [ "100%", "$death_button_height" ],
+                "$button_size": [ "100%", "$death_button_height" ],
+                "$button_text": "Main Menu",
+                "$pressed_button_name": "button.death_main_menu",
+                "$focus_id": "death_menu",
+                "$focus_change_up": "death_respawn",
+                "layer": 42
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "statistics_panel": {
+    "type": "panel",
+    "size": [ "35%c", "50%c" ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [ 20, -20 ],
+    "layer": 38,
+    "controls": [
+      {
+        "stats_frame_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 40
+        }
+      },
+      {
+        "stats_frame_bg": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.85,
+          "layer": 39
+        }
+      },
+      {
+        "stats_content": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "calc(100% - 20px)", "calc(100% - 20px)" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 42,
+          "controls": [
+            {
+              "stats_title": {
+                "type": "label",
+                "text": "STATISTICS",
+                "color": "$color_cyan",
+                "size": [ "100%", "default" ],
+                "font_size": "large",
+                "shadow": true,
+                "layer": 42
+              }
+            },
+            {
+              "stats_spacing_1": {
+                "type": "panel",
+                "size": [ "100%", 8 ],
+                "layer": 1
+              }
+            },
+            {
+              "playtime_label": {
+                "type": "label",
+                "text": "Playtime: #playtime",
+                "color": "$color_white",
+                "size": [ "100%", "default" ],
+                "layer": 42,
+                "bindings": [
+                  {
+                    "binding_name": "#playtime"
+                  }
+                ]
+              }
+            },
+            {
+              "stats_spacing_2": {
+                "type": "panel",
+                "size": [ "100%", 4 ],
+                "layer": 1
+              }
+            },
+            {
+              "deaths_label": {
+                "type": "label",
+                "text": "Deaths: #death_count",
+                "color": "$color_white",
+                "size": [ "100%", "default" ],
+                "layer": 42,
+                "bindings": [
+                  {
+                    "binding_name": "#death_count"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "death_panel@death.death_panel": {
+          "layer": 38
+        }
+      },
+      {
+        "statistics@death.statistics_panel": {
+          "layer": 38,
+          "alpha": 0.8
+        }
+      }
+    ]
+  }
+}

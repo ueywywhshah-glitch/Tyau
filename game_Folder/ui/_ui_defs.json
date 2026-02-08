@@ -6,6 +6,8 @@
     "ui/MENU/data/RPC_BGDATA.uidata",
     "ui/loading_screen.json",
     "ui/start_screen.json",
+    "ui/inventory_screen.json",
+    "ui/death_screen.json",
     "ui/play_screen.json",
     "ui/realms_play_screen.json",
     "ui/server_screen.json",

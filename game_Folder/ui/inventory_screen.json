@@ -1,0 +1,265 @@
+{
+  "namespace": "inventory",
+
+  "$inventory_width": "100%",
+  "$inventory_height": "100%",
+  "$slot_size": 32,
+  "$slot_spacing": 2,
+  "$slot_border_thickness": 2,
+
+  "inventory_screen@common.base_screen": {
+    "$screen_bg_content": "inventory.screen_background_wrapper",
+    "$screen_content": "inventory.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.8,
+    "layer": 1
+  },
+
+  "inventory_grid": {
+    "type": "panel",
+    "size": [ "calc(($slot_size + $slot_spacing) * 9 + 10px)", "calc(($slot_size + $slot_spacing) * 5 + 20px)" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 20,
+    "controls": [
+      {
+        "grid_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.9,
+          "layer": 20
+        }
+      },
+      {
+        "inventory_items": {
+          "type": "grid",
+          "size": [ "100%c", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [ 0, 0 ],
+          "layer": 21,
+          "controls": [
+            {
+              "item_slot@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "item_slot_template": {
+    "type": "panel",
+    "size": [ "$slot_size", "$slot_size" ],
+    "layer": 21,
+    "controls": [
+      {
+        "slot_highlight": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 21,
+          "bindings": [
+            {
+              "binding_name": "#is_slot_hovered",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.3,
+          "layer": 22
+        }
+      },
+      {
+        "slot_icon": {
+          "type": "image",
+          "size": [ "calc(100% - 4px)", "calc(100% - 4px)" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 23
+        }
+      }
+    ]
+  },
+
+  "crafting_panel": {
+    "type": "panel",
+    "size": [ "calc(($slot_size + $slot_spacing) * 3 + 10px)", "calc(($slot_size + $slot_spacing) * 3 + 20px)" ],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [ 10, 0 ],
+    "layer": 20,
+    "controls": [
+      {
+        "crafting_label": {
+          "type": "label",
+          "text": "CRAFTING",
+          "color": "$color_cyan",
+          "shadow": true,
+          "size": [ "100%", "default" ],
+          "anchor_from": "top_center",
+          "anchor_to": "top_center",
+          "offset": [ 0, 5 ],
+          "layer": 25
+        }
+      },
+      {
+        "crafting_slots": {
+          "type": "grid",
+          "size": [ "100%c", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [ 0, 15 ],
+          "layer": 21,
+          "controls": [
+            {
+              "craft_slot@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "equipment_panel": {
+    "type": "panel",
+    "size": [ "calc($slot_size + 20px)", "calc(($slot_size + $slot_spacing) * 5 + 30px)" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "layer": 20,
+    "controls": [
+      {
+        "equipment_label": {
+          "type": "label",
+          "text": "ARMOR",
+          "color": "$color_cyan",
+          "shadow": true,
+          "size": [ "100%", "default" ],
+          "anchor_from": "top_center",
+          "anchor_to": "top_center",
+          "offset": [ 0, 5 ],
+          "layer": 25
+        }
+      },
+      {
+        "equipment_slots": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%c", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [ 0, 15 ],
+          "layer": 21,
+          "controls": [
+            {
+              "helmet@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            },
+            {
+              "spacing_1": {
+                "type": "panel",
+                "size": [ "100%", "$slot_spacing" ]
+              }
+            },
+            {
+              "chestplate@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            },
+            {
+              "spacing_2": {
+                "type": "panel",
+                "size": [ "100%", "$slot_spacing" ]
+              }
+            },
+            {
+              "leggings@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            },
+            {
+              "spacing_3": {
+                "type": "panel",
+                "size": [ "100%", "$slot_spacing" ]
+              }
+            },
+            {
+              "boots@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            },
+            {
+              "spacing_4": {
+                "type": "panel",
+                "size": [ "100%", "$slot_spacing" ]
+              }
+            },
+            {
+              "offhand@inventory.item_slot_template": {
+                "size": [ "$slot_size", "$slot_size" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "inventory_grid@inventory.inventory_grid": {
+          "layer": 20
+        }
+      },
+      {
+        "crafting_panel@inventory.crafting_panel": {
+          "layer": 20
+        }
+      },
+      {
+        "equipment_panel@inventory.equipment_panel": {
+          "layer": 20
+        }
+      },
+      {
+        "close_hint": {
+          "type": "label",
+          "text": "Press E to close",
+          "color": "$color_white_dim",
+          "size": [ "100%", "default" ],
+          "anchor_from": "bottom_center",
+          "anchor_to": "bottom_center",
+          "offset": [ 0, -20 ],
+          "layer": 25,
+          "shadow": true
+        }
+      }
+    ]
+  }
+}
