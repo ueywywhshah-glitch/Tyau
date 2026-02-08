@@ -1,33 +1,52 @@
 {
   "namespace": "common_buttons",
 
+  "$button_size": [ "100%", "100%" ],
+  "$button_text": "",
+  "$button_content": "common_buttons.empty_content",
+  "$button_texture_default": "textures/gui/client/btn_default",
+  "$button_texture_hover": "textures/gui/client/btn_hover",
+  "$button_texture_pressed": "textures/gui/client/btn_pressed",
+  "$button_texture_border": "textures/gui/client/btn_border",
+  "$button_alpha_default": 0.25,
+  "$button_alpha_hover": 0.65,
+  "$button_alpha_pressed": 1.0,
+  "$button_nineslice": 4.0,
+
+  // Empty content panel for buttons without custom content
+  "empty_content": {
+    "type": "panel",
+    "size": [ 0, 0 ]
+  },
+
   // 1. Image Shortcut
   "client_button_panel": {
     "type": "image",
-    "texture": "textures/gui/client/btn_default",
-    "nineslice_size": 4.0,
+    "texture": "$button_texture_default",
+    "nineslice_size": "$button_nineslice",
     "size": [ "100%", "100%" ]
   },
 
-  // 2. Global Wrapper
+  // 2. Global Wrapper with Custom Content Support
   "light_text_button@common.button": {
-    "size": [ "100%", "100%" ],
+    "size": "$button_size",
     "controls": [
       { "bg@common_buttons.simple_button": {} }
     ]
   },
 
-  // 3. Main Button Logic
+  // 3. Main Button Logic with Advanced State Management
   "simple_button@common.button": {
-    "size": [ "100%", "100%" ],
+    "size": "$button_size",
     "controls": [
       {
-        "default": {
+        "default_state": {
           "type": "image",
-          "texture": "textures/gui/client/btn_default",
-          "nineslice_size": 4.0,
-          "alpha": 0.25,
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "alpha": "$button_alpha_default",
           "layer": 1,
+          "size": [ "100%", "100%" ],
           "bindings": [
             {
               "binding_name": "(not #is_button_hovered and not #is_button_pressed)",
@@ -37,12 +56,13 @@
         }
       },
       {
-        "hover": {
+        "hover_state": {
           "type": "image",
-          "texture": "textures/gui/client/btn_hover",
-          "nineslice_size": 4.0,
-          "alpha": 0.65,
+          "texture": "$button_texture_hover",
+          "nineslice_size": "$button_nineslice",
+          "alpha": "$button_alpha_hover",
           "layer": 2,
+          "size": [ "100%", "100%" ],
           "bindings": [
             {
               "binding_name": "#is_button_hovered",
@@ -52,12 +72,13 @@
         }
       },
       {
-        "pressed": {
+        "pressed_state": {
           "type": "image",
-          "texture": "textures/gui/client/btn_pressed",
-          "nineslice_size": 4.0,
-          "alpha": 1.0,
+          "texture": "$button_texture_pressed",
+          "nineslice_size": "$button_nineslice",
+          "alpha": "$button_alpha_pressed",
           "layer": 3,
+          "size": [ "100%", "100%" ],
           "bindings": [
             {
               "binding_name": "#is_button_pressed",
@@ -67,12 +88,29 @@
         }
       },
       {
-        "border": {
+        "border_state": {
           "type": "image",
-          "texture": "textures/gui/client/btn_border",
-          "nineslice_size": 4.0,
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "layer": 4,
+          "size": [ "100%", "100%" ],
+          "alpha": 1.0,
+          "bindings": [
+            {
+              "binding_name": "true",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "content_container": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
           "layer": 5,
-          "alpha": 1.0
+          "controls": [
+            { "content@$button_content": {} }
+          ]
         }
       },
       {
@@ -83,40 +121,140 @@
           "layer": 6,
           "color": [ 1, 1, 1 ],
           "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            {
+              "binding_name": "$button_text",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // 4. Premium Settings: Toggle (Switch Style) - Advanced JSON UI
+  "premium_toggle": {
+    "type": "toggle",
+    "size": [ 44, 24 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "toggle_bg": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "alpha": 0.4,
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "toggle_on_glow": {
+          "type": "image",
+          "texture": "$button_texture_pressed",
+          "size": [ "50%", "100%" ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "layer": 2,
+          "bindings": [
+            {
+              "binding_name": "#toggle_state",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "toggle_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "layer": 3,
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "toggle_knob": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "size": [ 18, 18 ],
+          "layer": 4,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [
+            {
+              "binding_name": "#toggle_state",
+              "binding_type": "collection",
+              "source_control_name": "toggle_knob"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // 5. Premium Settings: Slider - Advanced JSON UI
+  "premium_slider": {
+    "type": "slider",
+    "size": [ "100%", 20 ],
+    "controls": [
+      {
+        "slider_track": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "alpha": 0.5,
+          "size": [ "100%", 4 ],
+          "layer": 1,
+          "anchor_from": "center",
+          "anchor_to": "center"
+        }
+      },
+      {
+        "slider_track_fill": {
+          "type": "image",
+          "texture": "$button_texture_hover",
+          "size": [ "#slider_percent%", 4 ],
+          "layer": 2,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "bindings": [
+            {
+              "binding_name": "#slider_percent",
+              "binding_name_override": "#size"
+            }
+          ]
+        }
+      },
+      {
+        "slider_knob": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "size": [ 16, 16 ],
+          "layer": 3,
+          "anchor_from": "center",
           "anchor_to": "center"
         }
       }
     ]
   },
 
-  // 4. Premium Settings: Toggle (Switch Style)
-  "premium_toggle": {
-    "type": "panel",
-    "size": [ 24, 12 ],
-    "controls": [
-      { "bg": { "type": "image", "texture": "textures/gui/client/btn_default", "alpha": 0.4, "layer": 1 } },
-      { 
-        "on_glow": { 
-          "type": "image", 
-          "texture": "textures/gui/client/btn_pressed", 
-          "size": [ "50%", "100%" ], 
-          "anchor_from": "right_middle", 
-          "anchor_to": "right_middle",
-          "bindings": [ { "binding_name": "#toggle_state", "binding_name_override": "#visible" } ],
-          "layer": 2 
-        } 
-      },
-      { "border": { "type": "image", "texture": "textures/gui/client/btn_border", "layer": 3 } }
-    ]
+  // 6. Advanced Button Variants
+  "primary_button@common_buttons.simple_button": {
+    "$button_texture_hover": "textures/gui/client/btn_hover",
+    "$button_alpha_hover": 0.8
   },
 
-  // 5. Premium Settings: Slider
-  "premium_slider": {
-    "type": "panel",
-    "size": [ "100%", 12 ],
-    "controls": [
-      { "track": { "type": "image", "texture": "textures/gui/client/btn_default", "alpha": 0.5, "size": [ "100%", 4 ], "layer": 1 } },
-      { "knob": { "type": "image", "texture": "textures/gui/client/btn_border", "size": [ 12, 12 ], "layer": 2 } }
-    ]
+  "secondary_button@common_buttons.simple_button": {
+    "$button_alpha_default": 0.15,
+    "$button_alpha_hover": 0.5,
+    "$button_alpha_pressed": 0.8
+  },
+
+  "icon_button@common_buttons.simple_button": {
+    "size": [ 32, 32 ],
+    "$button_text": ""
   }
 }

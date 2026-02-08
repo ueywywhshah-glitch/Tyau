@@ -20,9 +20,33 @@
     "type": "panel",
     "size": [ "100%", 35 ],
     "controls": [
-      { "bg@common_buttons.client_button_panel": { "alpha": 0.2, "layer": 1 } },
-      { "label": { "type": "label", "text": "$option_label", "offset": [ 10, 0 ], "anchor_from": "left_middle", "anchor_to": "left_middle", "layer": 2 } },
-      { "slider@common_buttons.premium_slider": { "size": [ 100, 20 ], "anchor_from": "right_middle", "anchor_to": "right_middle", "offset": [ -10, 0 ], "layer": 2 } }
+      { 
+        "bg@common_buttons.client_button_panel": { 
+          "alpha": 0.2, 
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+        } 
+      },
+      { 
+        "label": { 
+          "type": "label", 
+          "text": "$option_label", 
+          "offset": [ 10, 0 ], 
+          "anchor_from": "left_middle", 
+          "anchor_to": "left_middle",
+          "color": [ 1, 1, 1 ],
+          "layer": 2 
+        } 
+      },
+      { 
+        "slider@common_buttons.premium_slider": { 
+          "size": [ 120, 16 ], 
+          "anchor_from": "right_middle", 
+          "anchor_to": "right_middle", 
+          "offset": [ -10, 0 ], 
+          "layer": 2 
+        } 
+      }
     ]
   },
 
@@ -30,9 +54,32 @@
     "type": "panel",
     "size": [ "100%", 35 ],
     "controls": [
-      { "bg@common_buttons.client_button_panel": { "alpha": 0.2, "layer": 1 } },
-      { "label": { "type": "label", "text": "$option_label", "offset": [ 10, 0 ], "anchor_from": "left_middle", "anchor_to": "left_middle", "layer": 2 } },
-      { "toggle@common_buttons.premium_toggle": { "anchor_from": "right_middle", "anchor_to": "right_middle", "offset": [ -15, 0 ], "layer": 2 } }
+      { 
+        "bg@common_buttons.client_button_panel": { 
+          "alpha": 0.2, 
+          "layer": 1,
+          "size": [ "100%", "100%" ]
+        } 
+      },
+      { 
+        "label": { 
+          "type": "label", 
+          "text": "$option_label", 
+          "offset": [ 10, 0 ], 
+          "anchor_from": "left_middle", 
+          "anchor_to": "left_middle",
+          "color": [ 1, 1, 1 ],
+          "layer": 2 
+        } 
+      },
+      { 
+        "toggle@common_buttons.premium_toggle": { 
+          "anchor_from": "right_middle", 
+          "anchor_to": "right_middle", 
+          "offset": [ -15, 0 ], 
+          "layer": 2 
+        } 
+      }
     ]
   }
 }

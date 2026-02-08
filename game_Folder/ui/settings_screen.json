@@ -35,7 +35,15 @@
     "type": "panel",
     "size": [ "100%", 30 ],
     "controls": [
-      { "b@common_buttons.light_text_button": {} }
+      { 
+        "b@common_buttons.light_text_button": {
+          "size": [ "100%", "100%" ],
+          "$button_size": [ "100%", "100%" ],
+          "$button_alpha_default": 0.25,
+          "$button_alpha_hover": 0.65,
+          "$button_alpha_pressed": 1.0
+        } 
+      }
     ]
   }
 }
