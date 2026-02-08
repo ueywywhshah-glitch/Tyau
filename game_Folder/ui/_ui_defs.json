@@ -11,6 +11,10 @@
     "ui/performance_settings.json",
     "ui/profile_screen.json",
     "ui/notifications.json",
-    "ui/video_screen.json"
+    "ui/video_screen.json",
+    "ui/trade_2_screen.json",
+    "ui/trade_2_screen_pocket.json",
+    "ui/crafting_table_screen.json",
+    "ui/crafting_table_screen_pocket.json"
   ]
 }

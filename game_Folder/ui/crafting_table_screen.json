@@ -1,0 +1,386 @@
+{
+  "namespace": "crafting",
+
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+
+  "$header_height": 30,
+  "$spacing_gap": 4,
+  "$spacing_medium": 8,
+  "$spacing_large": 12,
+
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_cyan_secondary": [ 0.7, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+
+  "$panel_bg_alpha": 0.15,
+  "$bg_alpha_subtle": 0.2,
+
+  "crafting_table_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "crafting.crafting_screen_content"
+  },
+
+  "crafting_screen_content": {
+    "type": "panel",
+    "size": [ "$safezone_width", "$safezone_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "header@crafting.crafting_header": { "layer": 5 } },
+      { "main_content@crafting.main_crafting_panel": { "layer": 6 } },
+      { "toolbar@crafting.toolbar_panel": { "layer": 5 } }
+    ]
+  },
+
+  "crafting_header": {
+    "type": "panel",
+    "size": [ "100%", "$header_height" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 0 ],
+    "layer": 7,
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 40
+        }
+      },
+      {
+        "header_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 41
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "WOLF CLIENT | CRAFTING TABLE",
+          "color": "$color_cyan",
+          "offset": [ 15, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "main_crafting_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 90px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 35 ],
+    "layer": 6,
+    "controls": [
+      {
+        "crafting_grid_container": {
+          "type": "panel",
+          "size": [ "95%c", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 10 ],
+          "layer": 6,
+          "controls": [
+            {
+              "input_section": {
+                "type": "panel",
+                "size": [ "40%", "100%c" ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "offset": [ 0, 0 ],
+                "layer": 6,
+                "controls": [
+                  {
+                    "input_label": {
+                      "type": "label",
+                      "text": "Input",
+                      "color": "$color_cyan_secondary",
+                      "offset": [ 10, 10 ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "input_grid": {
+                      "type": "panel",
+                      "size": [ "100%", 100 ],
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "offset": [ 0, 30 ],
+                      "layer": 6,
+                      "controls": [
+                        {
+                          "grid_bg": {
+                            "type": "image",
+                            "texture": "textures/gui/client/btn_default",
+                            "nineslice_size": 4.0,
+                            "size": [ "100%", "100%" ],
+                            "alpha": "$bg_alpha_subtle",
+                            "layer": 50
+                          }
+                        },
+                        {
+                          "grid_border": {
+                            "type": "image",
+                            "texture": "textures/gui/client/btn_border",
+                            "nineslice_size": 4.0,
+                            "size": [ "100%", "100%" ],
+                            "layer": 51
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "arrow_section": {
+                "type": "panel",
+                "size": [ "20%", "100%c" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [ 0, 0 ],
+                "layer": 6,
+                "controls": [
+                  {
+                    "crafting_arrow_large@crafting.crafting_arrow_large": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 11
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "output_section": {
+                "type": "panel",
+                "size": [ "40%", "100%c" ],
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle",
+                "offset": [ 0, 0 ],
+                "layer": 6,
+                "controls": [
+                  {
+                    "output_label": {
+                      "type": "label",
+                      "text": "Output",
+                      "color": "$color_cyan_secondary",
+                      "offset": [ 10, 10 ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "output_slot": {
+                      "type": "panel",
+                      "size": [ 80, 80 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [ 0, 20 ],
+                      "layer": 6,
+                      "controls": [
+                        {
+                          "slot_bg": {
+                            "type": "image",
+                            "texture": "textures/gui/client/btn_default",
+                            "nineslice_size": 4.0,
+                            "size": [ "100%", "100%" ],
+                            "alpha": "$bg_alpha_subtle",
+                            "layer": 50
+                          }
+                        },
+                        {
+                          "slot_border": {
+                            "type": "image",
+                            "texture": "textures/gui/client/btn_border",
+                            "nineslice_size": 4.0,
+                            "size": [ "100%", "100%" ],
+                            "layer": 51
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "crafting_arrow_large": {
+    "type": "panel",
+    "size": [ 60, 60 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 11,
+    "controls": [
+      {
+        "arrow_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 50
+        }
+      },
+      {
+        "arrow_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 51
+        }
+      },
+      {
+        "arrow_icon": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "size": [ 32, 32 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$color_cyan",
+          "layer": 52
+        }
+      },
+      {
+        "quick_craft_button@common_buttons.icon_button": {
+          "size": [ 26, 26 ],
+          "offset": [ 4, 10 ],
+          "$button_size": [ 26, 26 ],
+          "$button_text": "",
+          "$pressed_button_name": "button.quick_craft",
+          "$focus_id": "quick_craft_large",
+          "layer": 11
+        }
+      }
+    ]
+  },
+
+  "crafting_arrow": {
+    "type": "panel",
+    "size": [ 48, 48 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 11,
+    "controls": [
+      {
+        "arrow_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 50
+        }
+      },
+      {
+        "arrow_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 51
+        }
+      },
+      {
+        "quick_craft_button@common_buttons.icon_button": {
+          "$button_size": [ 48, 48 ],
+          "$button_text": "",
+          "$pressed_button_name": "button.quick_craft",
+          "$focus_id": "quick_craft_standard",
+          "layer": 11
+        }
+      }
+    ]
+  },
+
+  "toolbar_panel": {
+    "type": "panel",
+    "size": [ "100%", 50 ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [ 0, 0 ],
+    "layer": 5,
+    "controls": [
+      {
+        "toolbar_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 40
+        }
+      },
+      {
+        "toolbar_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 41
+        }
+      },
+      {
+        "toolbar_stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [ 10, 0 ],
+          "layer": 42,
+          "controls": [
+            {
+              "back_button@common_buttons.simple_button": {
+                "size": [ 100, 30 ],
+                "$button_text": "Back",
+                "$button_size": [ 100, 30 ],
+                "$pressed_button_name": "button.crafting_back",
+                "$focus_id": "crafting_back_btn",
+                "layer": 10
+              }
+            },
+            { "spacing": { "type": "panel", "size": [ "$spacing_large", "100%" ], "layer": 1 } },
+            {
+              "clear_button@common_buttons.simple_button": {
+                "size": [ 100, 30 ],
+                "$button_text": "Clear",
+                "$button_size": [ 100, 30 ],
+                "$pressed_button_name": "button.crafting_clear",
+                "$focus_id": "crafting_clear_btn",
+                "layer": 10
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "namespace": "trade2_pocket",
+
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+
+  "$header_height": 30,
+  "$spacing_gap": 2,
+  "$spacing_medium": 6,
+  "$spacing_large": 10,
+
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+
+  "$panel_bg_alpha": 0.15,
+  "$padding_item_size_large": "200%c",
+  "$padding_item_size_medium": "150%c",
+
+  "trade_2_pocket_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "trade2_pocket.pocket_screen_content"
+  },
+
+  "pocket_screen_content": {
+    "type": "panel",
+    "size": [ "$safezone_width", "$safezone_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "header@trade2_pocket.pocket_header": { "layer": 5 } },
+      { "main_content@trade2_pocket.main_pocket_panel": { "layer": 6 } }
+    ]
+  },
+
+  "pocket_header": {
+    "type": "panel",
+    "size": [ "100%", "$header_height" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 0 ],
+    "layer": 7,
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 40
+        }
+      },
+      {
+        "header_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 41
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "WOLF CLIENT | TRADE (POCKET)",
+          "color": "$color_cyan",
+          "offset": [ 15, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "main_pocket_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 80px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 35 ],
+    "layer": 6,
+    "controls": [
+      { "toggle_section@trade2_pocket.toggle_content": { "layer": 6 } }
+    ]
+  },
+
+  "toggle_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%cm" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 0 ],
+    "layer": 6,
+    "controls": [
+      { "padding_1": { "type": "panel", "size": [ "fill", 0 ], "layer": 1 } },
+      {
+        "trade_item_1@trade2_pocket.trade_item_box": {
+          "$item_name": "Trade Item 1",
+          "layer": 11
+        }
+      },
+      { "padding_2": { "type": "panel", "size": [ "$spacing_gap", 0 ], "layer": 1 } },
+      {
+        "padding_2_extra": {
+          "type": "panel",
+          "size": [ "$spacing_large", 0 ],
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_name": "(not #padding_around_sell_item)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "trade_item_2@trade2_pocket.trade_item_box": {
+          "$item_name": "Trade Item 2",
+          "layer": 11
+        }
+      },
+      { "padding_3": { "type": "panel", "size": [ "$spacing_gap", 0 ], "layer": 1 } },
+      {
+        "padding_3_extra": {
+          "type": "panel",
+          "size": [ "$spacing_medium", 0 ],
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_name": "(not #padding_around_sell_item)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "arrow_holder@trade2_pocket.arrow_holder": {
+          "inherit_max_sibling_height": true,
+          "layer": 11
+        }
+      },
+      { "padding_4": { "type": "panel", "size": [ "$spacing_gap", 0 ], "layer": 1 } },
+      {
+        "sell_item_with_padding": {
+          "type": "panel",
+          "size": [ "$padding_item_size_large", "100%c" ],
+          "layer": 11,
+          "controls": [
+            { "sell_item@trade2_pocket.sell_item_box": {} }
+          ],
+          "bindings": [
+            {
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_name": "#padding_around_sell_item",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "sell_item_reduced_padding": {
+          "type": "panel",
+          "size": [ "$padding_item_size_medium", "100%c" ],
+          "layer": 11,
+          "controls": [
+            { "sell_item@trade2_pocket.sell_item_box": {} }
+          ],
+          "bindings": [
+            {
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_name": "(not #padding_around_sell_item)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "padding_5": { "type": "panel", "size": [ "fill", 0 ], "layer": 1 } }
+    ]
+  },
+
+  "trade_item_box": {
+    "type": "panel",
+    "size": [ 60, 60 ],
+    "layer": 11,
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 50
+        }
+      },
+      {
+        "item_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 51
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$item_name",
+          "color": "$color_white_dim",
+          "size": [ "100%", 20 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "sell_item_box": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 11,
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 50
+        }
+      },
+      {
+        "item_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 51
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "Sell Item",
+          "color": "$color_cyan",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "arrow_holder": {
+    "type": "panel",
+    "size": [ 48, 48 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 11,
+    "controls": [
+      {
+        "arrow_icon": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "size": [ 32, 32 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$color_cyan",
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "quick_trade_button_holder": {
+    "type": "panel",
+    "size": [ "100%", 50 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [ 0, -10 ],
+    "layer": 5,
+    "controls": [
+      {
+        "quick_trade_btn@common_buttons.icon_button": {
+          "size": [ 32, 32 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -15, 0 ],
+          "$button_text": "",
+          "$button_size": [ 32, 32 ],
+          "$pressed_button_name": "button.quick_trade_pocket",
+          "$focus_id": "quick_trade_pocket_btn",
+          "layer": 10
+        }
+      }
+    ]
+  }
+}

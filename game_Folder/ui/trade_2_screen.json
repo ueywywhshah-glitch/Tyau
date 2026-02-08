@@ -1,0 +1,222 @@
+{
+  "namespace": "trade2",
+
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+  "$safezone_offset_x": "5%c",
+  "$safezone_offset_y": "5%c",
+
+  "$header_height": 30,
+  "$spacing_gap": 4,
+  "$spacing_medium": 8,
+  "$spacing_large": 12,
+
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_cyan_secondary": [ 0.7, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+
+  "$panel_bg_alpha": 0.15,
+  "$bg_alpha_subtle": 0.2,
+
+  "trade_2_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "trade2.trade_screen_content"
+  },
+
+  "trade_screen_content": {
+    "type": "panel",
+    "size": [ "$safezone_width", "$safezone_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "header@trade2.trade_header": { "layer": 5 } },
+      { "main_content@trade2.main_trade_panel": { "layer": 6 } },
+      { "tier_section@trade2.tier_stack_panel": { "layer": 6 } }
+    ]
+  },
+
+  "trade_header": {
+    "type": "panel",
+    "size": [ "100%", "$header_height" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 0 ],
+    "layer": 7,
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$panel_bg_alpha",
+          "layer": 40
+        }
+      },
+      {
+        "header_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 41
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "WOLF CLIENT | TRADE",
+          "color": "$color_cyan",
+          "offset": [ 15, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "main_trade_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 50px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 35 ],
+    "layer": 6,
+    "controls": []
+  },
+
+  "tier_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 60 ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 40 ],
+    "layer": 6,
+    "controls": [
+      { "tier_1@trade2.tier_button": { "$tier_name": "Tier I", "$tier_level": 0 } },
+      { "gap_1": { "type": "panel", "size": [ "$spacing_gap", "100%" ], "layer": 1 } },
+      { "tier_2@trade2.tier_button": { "$tier_name": "Tier II", "$tier_level": 1 } },
+      { "gap_2": { "type": "panel", "size": [ "$spacing_gap", "100%" ], "layer": 1 } },
+      { "tier_3@trade2.tier_button": { "$tier_name": "Tier III", "$tier_level": 2 } },
+      { "gap_3": { "type": "panel", "size": [ "$spacing_gap", "100%" ], "layer": 1 } },
+      { "tier_4@trade2.tier_button": { "$tier_name": "Tier IV", "$tier_level": 3 } }
+    ]
+  },
+
+  "tier_button@common_buttons.simple_button": {
+    "size": [ 100, 40 ],
+    "$button_text": "$tier_name",
+    "$button_size": [ 100, 40 ],
+    "$focus_id": "tier_button_focus",
+    "layer": 10
+  },
+
+  "trade_toggle_holder": {
+    "type": "panel",
+    "size": [ "100%", "60%c - 1px" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 105 ],
+    "layer": 6,
+    "controls": [
+      { "trade_icons@trade2.trade_icons": { "anchor_from": "top_middle", "anchor_to": "top_middle", "layer": 11 } }
+    ]
+  },
+
+  "trade_icons": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "95%c", "100%c" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 4 ],
+    "layer": 11,
+    "controls": [
+      { "trade_icon_1@trade2.toggle_content": {} },
+      { "gap_1": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+      { "trade_icon_2@trade2.toggle_content": {} },
+      { "gap_2": { "type": "panel", "size": [ "100%", "$spacing_gap" ], "layer": 1 } },
+      { "trade_icon_3@trade2.toggle_content": {} }
+    ]
+  },
+
+  "toggle_content": {
+    "type": "panel",
+    "size": [ "100%", 36 ],
+    "layer": 11,
+    "controls": [
+      {
+        "content_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$bg_alpha_subtle",
+          "layer": 50
+        }
+      },
+      {
+        "content_label": {
+          "type": "label",
+          "text": "Trade Item",
+          "color": "$color_white",
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 51
+        }
+      },
+      {
+        "content_button@trade2.hover_button": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "layer": 52
+        }
+      }
+    ]
+  },
+
+  "hover_button@common_buttons.simple_button": {
+    "size": [ 60, 24 ],
+    "$button_size": [ 60, 24 ],
+    "$button_text": "Select",
+    "$button_alpha_default": 0.3,
+    "$button_alpha_hover": 0.6,
+    "$button_alpha_pressed": 0.9,
+    "$focus_id": "trade_select_button",
+    "layer": 10
+  },
+
+  "how_to_play_button_holder": {
+    "type": "panel",
+    "size": [ "100%", 40 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [ 0, -10 ],
+    "layer": 5,
+    "controls": [
+      {
+        "quick_trade_button@common_buttons.simple_button": {
+          "size": [ 180, 30 ],
+          "$button_text": "Quick Trade",
+          "$button_size": [ 180, 30 ],
+          "$pressed_button_name": "button.quick_trade",
+          "$focus_id": "quick_trade_button",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "layer": 10
+        }
+      }
+    ]
+  }
+}
