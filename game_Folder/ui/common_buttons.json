@@ -258,3 +258,20 @@
     "$button_text": ""
   }
 }
+"simple_button@common.button": {
+      "size": [ "100%", "100%" ],
+          "controls": [
+                { "default@common_buttons.button_state": { "texture": "textures/gui/client/btn_default", "alpha": 0.25, "binding": "(not #is_button_hovered and not #is_button_pressed)" } },
+                      { "hover@common_buttons.button_state": { "texture": "textures/gui/client/btn_hover", "alpha": 0.65, "binding": "#is_button_hovered" } },
+                            { "pressed@common_buttons.button_state": { "texture": "textures/gui/client/btn_pressed", "alpha": 1.0, "binding": "#is_button_pressed" } },
+                                  { "border": { "type": "image", "texture": "textures/gui/client/btn_border", "layer": 5 } },
+                                        { 
+                                                "content_holder": { 
+                                                          "type": "panel", 
+                                                                    "layer": 6, 
+                                                                              "controls": [ { "content@$button_content": { } } ] 
+                                                                                      } 
+                                                                                            }
+                                                                                                ]
+                                                                                                  }
+}
