@@ -1,0 +1,396 @@
+{
+  "namespace": "profile_screen",
+
+  "profile_cosmetics_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "profile_screen.profile_screen_content"
+  },
+
+  "profile_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "back_button_panel@profile_screen.back_button_section": {} },
+      { "main_content@profile_screen.main_profile_panel": { "layer": 2 } }
+    ]
+  },
+
+  "back_button_section": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 10 ],
+    "controls": [
+      {
+        "back_btn@common_buttons.simple_button": {
+          "size": [ 100, 30 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 10, 0 ],
+          "$button_text": "Back",
+          "$button_size": [ 100, 30 ],
+          "$pressed_button_name": "button.profile_back"
+        }
+      }
+    ]
+  },
+
+  "main_profile_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 50px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 45 ],
+    "controls": [
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "controls": [
+            {
+              "title_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.15,
+                "layer": 1
+              }
+            },
+            {
+              "title_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "title_text": {
+                "type": "label",
+                "text": "WOLF CLIENT | PROFILE & COSMETICS",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 15, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      { "title_gap": { "type": "panel", "size": [ "100%", 8 ] } },
+      {
+        "profile_info_panel": {
+          "type": "panel",
+          "size": [ "100%", 80 ],
+          "controls": [
+            {
+              "info_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.25,
+                "layer": 1
+              }
+            },
+            {
+              "info_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "gamertag_label": {
+                "type": "label",
+                "text": "Gamertag:",
+                "color": [ 0.8, 1, 1 ],
+                "offset": [ 15, -25 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            },
+            {
+              "gamertag_value": {
+                "type": "label",
+                "text": "#gamertag_label",
+                "color": [ 1, 1, 1 ],
+                "offset": [ 150, -25 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3,
+                "bindings": [ { "binding_name": "#gamertag_label" } ]
+              }
+            },
+            {
+              "level_label": {
+                "type": "label",
+                "text": "Level:",
+                "color": [ 0.8, 1, 1 ],
+                "offset": [ 15, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            },
+            {
+              "level_value": {
+                "type": "label",
+                "text": "#player_level",
+                "color": [ 1, 1, 1 ],
+                "offset": [ 150, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3,
+                "bindings": [ { "binding_name": "#player_level" } ]
+              }
+            },
+            {
+              "status_label": {
+                "type": "label",
+                "text": "Status:",
+                "color": [ 0.8, 1, 1 ],
+                "offset": [ 15, 25 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            },
+            {
+              "status_value": {
+                "type": "label",
+                "text": "#player_status",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 150, 25 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3,
+                "bindings": [ { "binding_name": "#player_status" } ]
+              }
+            }
+          ]
+        }
+      },
+      { "profile_gap": { "type": "panel", "size": [ "100%", 8 ] } },
+      {
+        "content_container": {
+          "type": "stack_panel",
+          "size": [ "95%c", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 0 ],
+          "controls": [
+            {
+              "skins_header@profile_screen.section_header": {
+                "$section_title": "CHARACTER SKINS"
+              }
+            },
+            { "skin_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "skin_preview@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Default Skin",
+                "$cosmetic_type": "#skin_selected"
+              }
+            },
+            { "skin_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "skin_preview2@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Wolf Warrior Skin",
+                "$cosmetic_type": "#skin_selected"
+              }
+            },
+            { "skin_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "skin_preview3@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Cyber Wolf Skin",
+                "$cosmetic_type": "#skin_selected"
+              }
+            },
+            { "skin_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "cape_header@profile_screen.section_header": {
+                "$section_title": "CAPES & ACCESSORIES"
+              }
+            },
+            { "cape_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "cape_none@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "No Cape",
+                "$cosmetic_type": "#cape_selected"
+              }
+            },
+            { "cape_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "cape_wolf@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Wolf Cape",
+                "$cosmetic_type": "#cape_selected"
+              }
+            },
+            { "cape_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "cape_royal@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Royal Cloak",
+                "$cosmetic_type": "#cape_selected"
+              }
+            },
+            { "cape_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "effects_header@profile_screen.section_header": {
+                "$section_title": "PARTICLE EFFECTS"
+              }
+            },
+            { "effect_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "effect_none@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "No Effect",
+                "$cosmetic_type": "#effect_selected"
+              }
+            },
+            { "effect_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "effect_aura@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Cyan Aura",
+                "$cosmetic_type": "#effect_selected"
+              }
+            },
+            { "effect_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "effect_glow@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Electric Glow",
+                "$cosmetic_type": "#effect_selected"
+              }
+            },
+            { "effect_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "nameplate_header@profile_screen.section_header": {
+                "$section_title": "NAMEPLATE STYLES"
+              }
+            },
+            { "name_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "nameplate_default@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Default Nameplate",
+                "$cosmetic_type": "#nameplate_selected"
+              }
+            },
+            { "name_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "nameplate_neon@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Neon Nameplate",
+                "$cosmetic_type": "#nameplate_selected"
+              }
+            },
+            { "name_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "nameplate_shadow@profile_screen.cosmetic_item": {
+                "$cosmetic_name": "Shadow Nameplate",
+                "$cosmetic_type": "#nameplate_selected"
+              }
+            },
+            { "footer_gap": { "type": "panel", "size": [ "100%", 8 ] } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "section_header": {
+    "type": "panel",
+    "size": [ "100%", 22 ],
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.25,
+          "layer": 1
+        }
+      },
+      {
+        "header_accent": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "nineslice_size": 4.0,
+          "size": [ 4, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "$section_title",
+          "color": [ 0.7, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3
+        }
+      }
+    ]
+  },
+
+  "cosmetic_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 1
+        }
+      },
+      {
+        "item_name": {
+          "type": "label",
+          "text": "$cosmetic_name",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2,
+          "size": [ 200, "100%" ]
+        }
+      },
+      {
+        "select_btn@common_buttons.simple_button": {
+          "size": [ 100, 24 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "$button_text": "Select",
+          "$button_size": [ 100, 24 ],
+          "$button_alpha_default": 0.3,
+          "$button_alpha_hover": 0.6,
+          "$button_alpha_pressed": 0.9,
+          "layer": 6,
+          "bindings": [
+            {
+              "binding_name": "$cosmetic_type",
+              "binding_name_override": "#pressed"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "namespace": "controls_settings",
+
+  "controls_settings_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "controls_settings.controls_screen_content"
+  },
+
+  "controls_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "back_button_panel@controls_settings.back_button_section": {} },
+      { "main_content@controls_settings.main_controls_panel": { "layer": 2 } }
+    ]
+  },
+
+  "back_button_section": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 10 ],
+    "controls": [
+      {
+        "back_btn@common_buttons.simple_button": {
+          "size": [ 100, 30 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 10, 0 ],
+          "$button_text": "Back",
+          "$button_size": [ 100, 30 ],
+          "$pressed_button_name": "button.controls_back"
+        }
+      }
+    ]
+  },
+
+  "main_controls_panel": {
+    "type": "panel",
+    "size": [ "100%", "100% - 50px" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [ 0, 45 ],
+    "controls": [
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "controls": [
+            {
+              "title_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.15,
+                "layer": 1
+              }
+            },
+            {
+              "title_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "title_text": {
+                "type": "label",
+                "text": "WOLF CLIENT | CONTROLS",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 15, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      { "title_gap": { "type": "panel", "size": [ "100%", 8 ] } },
+      {
+        "content_container": {
+          "type": "stack_panel",
+          "size": [ "95%c", "100%c" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 0 ],
+          "controls": [
+            {
+              "movement_header@controls_settings.section_header": {
+                "$section_title": "MOVEMENT CONTROLS"
+              }
+            },
+            { "mov_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "forward_key@controls_settings.keybind_item": {
+                "$bind_label": "Forward",
+                "$bind_action": "#forward_key"
+              }
+            },
+            { "mov_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "backward_key@controls_settings.keybind_item": {
+                "$bind_label": "Backward",
+                "$bind_action": "#backward_key"
+              }
+            },
+            { "mov_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "left_key@controls_settings.keybind_item": {
+                "$bind_label": "Strafe Left",
+                "$bind_action": "#left_key"
+              }
+            },
+            { "mov_gap4": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "right_key@controls_settings.keybind_item": {
+                "$bind_label": "Strafe Right",
+                "$bind_action": "#right_key"
+              }
+            },
+            { "mov_gap5": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "jump_key@controls_settings.keybind_item": {
+                "$bind_label": "Jump",
+                "$bind_action": "#jump_key"
+              }
+            },
+            { "mov_gap6": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "sneak_key@controls_settings.keybind_item": {
+                "$bind_label": "Sneak",
+                "$bind_action": "#sneak_key"
+              }
+            },
+            { "mov_gap7": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "sprint_key@controls_settings.keybind_item": {
+                "$bind_label": "Sprint",
+                "$bind_action": "#sprint_key"
+              }
+            },
+            { "mov_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "action_header@controls_settings.section_header": {
+                "$section_title": "ACTION CONTROLS"
+              }
+            },
+            { "act_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "attack_key@controls_settings.keybind_item": {
+                "$bind_label": "Attack",
+                "$bind_action": "#attack_key"
+              }
+            },
+            { "act_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "use_key@controls_settings.keybind_item": {
+                "$bind_label": "Use Item",
+                "$bind_action": "#use_key"
+              }
+            },
+            { "act_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "drop_key@controls_settings.keybind_item": {
+                "$bind_label": "Drop Item",
+                "$bind_action": "#drop_key"
+              }
+            },
+            { "act_gap4": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "inventory_key@controls_settings.keybind_item": {
+                "$bind_label": "Inventory",
+                "$bind_action": "#inventory_key"
+              }
+            },
+            { "act_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "mouse_header@controls_settings.section_header": {
+                "$section_title": "MOUSE & CAMERA"
+              }
+            },
+            { "mouse_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "sensitivity@controls_settings.slider_item": {
+                "$item_label": "Mouse Sensitivity",
+                "$slider_binding": "#mouse_sensitivity"
+              }
+            },
+            { "mouse_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "invert_y@controls_settings.toggle_item": {
+                "$item_label": "Invert Y-Axis",
+                "$toggle_binding": "#invert_y_axis"
+              }
+            },
+            { "mouse_gap3": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "smooth_camera@controls_settings.toggle_item": {
+                "$item_label": "Smooth Camera",
+                "$toggle_binding": "#smooth_camera"
+              }
+            },
+            { "mouse_spacer": { "type": "panel", "size": [ "100%", 12 ] } },
+            {
+              "options_header@controls_settings.section_header": {
+                "$section_title": "CONTROL OPTIONS"
+              }
+            },
+            { "opt_gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "toggle_crouch@controls_settings.toggle_item": {
+                "$item_label": "Toggle Crouch",
+                "$toggle_binding": "#toggle_crouch"
+              }
+            },
+            { "opt_gap2": { "type": "panel", "size": [ "100%", 3 ] } },
+            {
+              "toggle_sprint@controls_settings.toggle_item": {
+                "$item_label": "Toggle Sprint",
+                "$toggle_binding": "#toggle_sprint"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "section_header": {
+    "type": "panel",
+    "size": [ "100%", 22 ],
+    "controls": [
+      {
+        "header_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.25,
+          "layer": 1
+        }
+      },
+      {
+        "header_accent": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "nineslice_size": 4.0,
+          "size": [ 4, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2
+        }
+      },
+      {
+        "header_text": {
+          "type": "label",
+          "text": "$section_title",
+          "color": [ 0.7, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3
+        }
+      }
+    ]
+  },
+
+  "keybind_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 1
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$bind_label",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2,
+          "size": [ 150, "100%" ]
+        }
+      },
+      {
+        "keybind_button@common_buttons.simple_button": {
+          "size": [ 120, 24 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "$button_text": "$bind_action",
+          "$button_size": [ 120, 24 ],
+          "$button_alpha_default": 0.3,
+          "$button_alpha_hover": 0.6,
+          "$button_alpha_pressed": 0.9,
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "slider_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 1
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$item_label",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2,
+          "size": [ 150, "100%" ]
+        }
+      },
+      {
+        "slider@common_buttons.premium_slider": {
+          "size": [ 140, 14 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "layer": 6
+        }
+      }
+    ]
+  },
+
+  "toggle_item": {
+    "type": "panel",
+    "size": [ "100%", 32 ],
+    "controls": [
+      {
+        "item_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 1
+        }
+      },
+      {
+        "item_label": {
+          "type": "label",
+          "text": "$item_label",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 12, 0 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 2,
+          "size": [ 150, "100%" ]
+        }
+      },
+      {
+        "toggle@common_buttons.premium_toggle": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -12, 0 ],
+          "layer": 6
+        }
+      }
+    ]
+  }
+}

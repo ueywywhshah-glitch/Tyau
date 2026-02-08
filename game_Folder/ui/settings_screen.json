@@ -32,6 +32,8 @@
       { "p1": { "type": "panel", "size": [ "100%", 2 ] } },
       { "audio@settings_start.cat_row": { "$button_text": "Audio", "$pressed_button_name": "button.audio_tab" } },
       { "p2": { "type": "panel", "size": [ "100%", 2 ] } },
+      { "performance@settings_start.cat_row": { "$button_text": "Performance", "$pressed_button_name": "button.performance_tab" } },
+      { "p3": { "type": "panel", "size": [ "100%", 2 ] } },
       { "ctrl@settings_start.cat_row": { "$button_text": "Controls", "$pressed_button_name": "button.controls_tab" } },
       { "fill2": { "type": "panel", "size": [ "100%", "fill" ] } }
     ]
@@ -67,9 +69,192 @@
     "anchor_to": "right_middle",
     "offset": [ -10, 0 ],
     "controls": [
-      { "music_slider@settings_start.slider_row": { "$option_label": "options.music", "$slider_binding": "#music_volume" } },
-      { "gap1": { "type": "panel", "size": [ "100%", 4 ] } },
-      { "sound_slider@settings_start.slider_row": { "$option_label": "options.sound", "$slider_binding": "#sound_volume" } }
+      {
+        "header_section": {
+          "type": "panel",
+          "size": [ "100%", 25 ],
+          "controls": [
+            {
+              "header_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.15,
+                "layer": 1
+              }
+            },
+            {
+              "header_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "header_text": {
+                "type": "label",
+                "text": "Audio Settings",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 10, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      { "gap_header": { "type": "panel", "size": [ "100%", 6 ] } },
+      {
+        "volume_section": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "master_volume@settings_start.slider_row": {
+                "$option_label": "Master Volume",
+                "$slider_binding": "#master_volume"
+              }
+            },
+            { "gap_1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "music_volume@settings_start.slider_row": {
+                "$option_label": "Music Volume",
+                "$slider_binding": "#music_volume"
+              }
+            },
+            { "gap_2": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "sound_volume@settings_start.slider_row": {
+                "$option_label": "Sound Effects",
+                "$slider_binding": "#sound_volume"
+              }
+            },
+            { "gap_3": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "ambient_volume@settings_start.slider_row": {
+                "$option_label": "Ambient Sounds",
+                "$slider_binding": "#ambient_volume"
+              }
+            },
+            { "gap_4": { "type": "panel", "size": [ "100%", 10 ] } },
+            {
+              "audio_feedback@settings_start.toggle_row": {
+                "$option_label": "Audio Feedback",
+                "$toggle_binding": "#audio_feedback"
+              }
+            },
+            { "gap_5": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "subtitles_toggle@settings_start.toggle_row": {
+                "$option_label": "Show Subtitles",
+                "$toggle_binding": "#subtitles_enabled"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "performance_settings_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 140px", "100% - 40px" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "controls": [
+      {
+        "header_section": {
+          "type": "panel",
+          "size": [ "100%", 25 ],
+          "controls": [
+            {
+              "header_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.15,
+                "layer": 1
+              }
+            },
+            {
+              "header_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "header_text": {
+                "type": "label",
+                "text": "Performance Settings",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 10, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      { "gap_header": { "type": "panel", "size": [ "100%", 6 ] } },
+      {
+        "performance_section": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "render_distance@settings_start.slider_row": {
+                "$option_label": "Render Distance",
+                "$slider_binding": "#render_distance"
+              }
+            },
+            { "gap_1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "fov@settings_start.slider_row": {
+                "$option_label": "Field of View",
+                "$slider_binding": "#fov"
+              }
+            },
+            { "gap_2": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "graphics@settings_start.toggle_row": {
+                "$option_label": "Fancy Graphics",
+                "$toggle_binding": "#fancy_graphics"
+              }
+            },
+            { "gap_3": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "smooth_lighting@settings_start.toggle_row": {
+                "$option_label": "Smooth Lighting",
+                "$toggle_binding": "#smooth_lighting"
+              }
+            },
+            { "gap_4": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "particle@settings_start.slider_row": {
+                "$option_label": "Particle Density",
+                "$slider_binding": "#particle_density"
+              }
+            },
+            { "gap_5": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "vsync@settings_start.toggle_row": {
+                "$option_label": "VSync",
+                "$toggle_binding": "#vsync_enabled"
+              }
+            }
+          ]
+        }
+      }
     ]
   },
 
@@ -80,7 +265,87 @@
     "anchor_to": "right_middle",
     "offset": [ -10, 0 ],
     "controls": [
-      { "sensitivity_slider@settings_start.slider_row": { "$option_label": "options.sensitivity", "$slider_binding": "#mouse_sensitivity" } }
+      {
+        "header_section": {
+          "type": "panel",
+          "size": [ "100%", 25 ],
+          "controls": [
+            {
+              "header_bg": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_default",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "alpha": 0.15,
+                "layer": 1
+              }
+            },
+            {
+              "header_border": {
+                "type": "image",
+                "texture": "textures/gui/client/btn_border",
+                "nineslice_size": 4.0,
+                "size": [ "100%", "100%" ],
+                "layer": 2
+              }
+            },
+            {
+              "header_text": {
+                "type": "label",
+                "text": "Control Settings",
+                "color": [ 0, 1, 1 ],
+                "offset": [ 10, 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      { "gap_header": { "type": "panel", "size": [ "100%", 6 ] } },
+      {
+        "controls_section": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "sensitivity@settings_start.slider_row": {
+                "$option_label": "Mouse Sensitivity",
+                "$slider_binding": "#mouse_sensitivity"
+              }
+            },
+            { "gap_1": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "invert_y@settings_start.toggle_row": {
+                "$option_label": "Invert Y-Axis",
+                "$toggle_binding": "#invert_y_axis"
+              }
+            },
+            { "gap_2": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "smooth_camera@settings_start.toggle_row": {
+                "$option_label": "Smooth Camera",
+                "$toggle_binding": "#smooth_camera"
+              }
+            },
+            { "gap_3": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "toggle_crouch@settings_start.toggle_row": {
+                "$option_label": "Toggle Crouch",
+                "$toggle_binding": "#toggle_crouch"
+              }
+            },
+            { "gap_4": { "type": "panel", "size": [ "100%", 4 ] } },
+            {
+              "toggle_sprint@settings_start.toggle_row": {
+                "$option_label": "Toggle Sprint",
+                "$toggle_binding": "#toggle_sprint"
+              }
+            }
+          ]
+        }
+      }
     ]
   },
 
