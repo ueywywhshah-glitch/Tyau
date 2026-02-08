@@ -1,6 +1,13 @@
 {
   "namespace": "common_buttons",
 
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+  "$glass_alpha": 0.15,
+  "$btn_height": 19,
+  "$header_height": 30,
+
   "$button_size": [ "100%", "100%" ],
   "$button_text": "",
   "$button_content": "common_buttons.empty_panel",
@@ -41,7 +48,7 @@
           "texture": "$button_texture_default",
           "nineslice_size": "$button_nineslice",
           "alpha": "$button_alpha_default",
-          "layer": 1,
+          "layer": 10,
           "size": [ "100%", "100%" ],
           "bindings": [
             {
@@ -57,7 +64,7 @@
           "texture": "$button_texture_hover",
           "nineslice_size": "$button_nineslice",
           "alpha": "$button_alpha_hover",
-          "layer": 2,
+          "layer": 11,
           "size": [ "100%", "100%" ],
           "bindings": [
             {
@@ -73,7 +80,7 @@
           "texture": "$button_texture_pressed",
           "nineslice_size": "$button_nineslice",
           "alpha": "$button_alpha_pressed",
-          "layer": 3,
+          "layer": 12,
           "size": [ "100%", "100%" ],
           "bindings": [
             {
@@ -88,7 +95,7 @@
           "type": "image",
           "texture": "$button_texture_border",
           "nineslice_size": "$button_nineslice",
-          "layer": 4,
+          "layer": 13,
           "size": [ "100%", "100%" ],
           "alpha": 1.0
         }
@@ -97,7 +104,7 @@
         "content_container": {
           "type": "panel",
           "size": [ "100%", "100%" ],
-          "layer": 5,
+          "layer": 14,
           "controls": [
             { "content@$button_content": {} }
           ]
@@ -108,8 +115,8 @@
           "type": "label",
           "text": "$button_text",
           "shadow": true,
-          "layer": 6,
-          "color": [ 1, 1, 1 ],
+          "layer": 15,
+          "color": "$color_white",
           "anchor_from": "center",
           "anchor_to": "center",
           "bindings": [
@@ -135,7 +142,7 @@
           "texture": "$button_texture_default",
           "nineslice_size": "$button_nineslice",
           "alpha": 0.4,
-          "layer": 1,
+          "layer": 20,
           "size": [ "100%", "100%" ]
         }
       },
@@ -146,7 +153,7 @@
           "size": [ "50%", "100%" ],
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
-          "layer": 2,
+          "layer": 21,
           "bindings": [
             {
               "binding_name": "#toggle_state",
@@ -160,7 +167,7 @@
           "type": "image",
           "texture": "$button_texture_border",
           "nineslice_size": "$button_nineslice",
-          "layer": 3,
+          "layer": 22,
           "size": [ "100%", "100%" ]
         }
       },
@@ -169,7 +176,7 @@
           "type": "image",
           "texture": "$button_texture_border",
           "size": [ 18, 18 ],
-          "layer": 4,
+          "layer": 23,
           "anchor_from": "center",
           "anchor_to": "center"
         }
@@ -187,7 +194,7 @@
           "texture": "$button_texture_default",
           "alpha": 0.5,
           "size": [ "100%", 4 ],
-          "layer": 1,
+          "layer": 30,
           "anchor_from": "center",
           "anchor_to": "center"
         }
@@ -197,7 +204,7 @@
           "type": "image",
           "texture": "$button_texture_hover",
           "size": [ "#slider_percent%", 4 ],
-          "layer": 2,
+          "layer": 31,
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
           "bindings": [
@@ -213,7 +220,7 @@
           "type": "image",
           "texture": "$button_texture_border",
           "size": [ 16, 16 ],
-          "layer": 3,
+          "layer": 32,
           "anchor_from": "center",
           "anchor_to": "center"
         }

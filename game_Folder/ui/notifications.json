@@ -1,6 +1,8 @@
 {
   "namespace": "notifications",
 
+  "$color_cyan": [ 0, 1, 1 ],
+
   "notification_panel": {
     "type": "panel",
     "size": [ 350, "100%" ],
@@ -163,7 +165,7 @@
   },
 
   "info_notification@notifications.toast_notification": {
-    "$notification_color": [ 0, 1, 1 ],
+    "$notification_color": "$color_cyan",
     "$notification_icon": "textures/gui/client/icon_info"
   },
 
@@ -259,7 +261,7 @@
   },
 
   "info_alert@notifications.inline_alert_panel": {
-    "$alert_color": [ 0, 1, 1 ],
+    "$alert_color": "$color_cyan",
     "$alert_icon": "textures/gui/client/icon_info",
     "$alert_bg_alpha": 0.15
   },
@@ -335,7 +337,7 @@
         "dialog_title": {
           "type": "label",
           "text": "$dialog_title",
-          "color": [ 0, 1, 1 ],
+          "color": "$color_cyan",
           "offset": [ 0, 0 ],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",

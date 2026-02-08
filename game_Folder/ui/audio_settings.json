@@ -1,6 +1,8 @@
 {
   "namespace": "audio_settings",
 
+  "$color_cyan": [ 0, 1, 1 ],
+
   "audio_settings_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [
@@ -76,7 +78,7 @@
               "title_text": {
                 "type": "label",
                 "text": "WOLF CLIENT | AUDIO SETTINGS",
-                "color": [ 0, 1, 1 ],
+                "color": "$color_cyan",
                 "offset": [ 15, 0 ],
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",

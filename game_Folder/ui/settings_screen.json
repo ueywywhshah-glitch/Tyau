@@ -1,6 +1,8 @@
 {
   "namespace": "settings_start",
 
+  "$color_cyan": [ 0, 1, 1 ],
+
   "settings_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [
@@ -97,7 +99,7 @@
               "header_text": {
                 "type": "label",
                 "text": "Audio Settings",
-                "color": [ 0, 1, 1 ],
+                "color": "$color_cyan",
                 "offset": [ 10, 0 ],
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
@@ -195,7 +197,7 @@
               "header_text": {
                 "type": "label",
                 "text": "Performance Settings",
-                "color": [ 0, 1, 1 ],
+                "color": "$color_cyan",
                 "offset": [ 10, 0 ],
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
@@ -293,7 +295,7 @@
               "header_text": {
                 "type": "label",
                 "text": "Control Settings",
-                "color": [ 0, 1, 1 ],
+                "color": "$color_cyan",
                 "offset": [ 10, 0 ],
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
