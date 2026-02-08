@@ -1,0 +1,11 @@
+{
+  "ui_defs": [
+    "ui/common_buttons.json",
+    "ui/MENU/comps/RPC_BGCOMP.uicomponent",
+    "ui/MENU/data/RPC_BGDATA.uidata",
+    "ui/start_screen.json",
+    "ui/chat_screen.json",
+    "ui/settings_screen.json",
+    "ui/video_screen.json"
+  ]
+}

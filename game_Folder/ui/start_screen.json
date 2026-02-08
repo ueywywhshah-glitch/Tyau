@@ -1,0 +1,102 @@
+﻿{
+  "namespace": "start",
+
+  "start_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "start.start_screen_content"
+  },
+
+  "start_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "main_menu@start.main_buttons_stack_panel": {} },
+      
+      // PLAYER TAG - TOP RIGHT
+      {
+        "tag_container": {
+          "type": "panel",
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "offset": [ -10, 10 ],
+          "size": [ 120, 20 ],
+          "controls": [
+            {
+              "name_tag": {
+                "type": "label",
+                "text": "#gamertag_label",
+                "color": [ 1, 1, 1 ],
+                "shadow": true,
+                "bindings": [ { "binding_name": "#gamertag_label" } ]
+              }
+            }
+          ]
+        }
+      },
+
+      // DRESSING ROOM - MATCHES MAIN MENU SIZE
+      {
+        "dr_container": {
+          "type": "panel",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -10, -35 ],
+          "size": [ 120, 30 ], // Same width and height as main menu
+          "controls": [
+            {
+              "dr_btn@common_buttons.simple_button": {
+                "$button_text": "Dressing Room",
+                "$pressed_button_name": "button.to_profile_screen"
+              }
+            }
+          ]
+        }
+      },
+      { "text_panel@start.text_panel": {} }
+    ]
+  },
+
+  "main_buttons_stack_panel": {
+    "type": "stack_panel",
+    "size": [ 120, "100%" ], 
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [ 20, 0 ],
+    "controls": [
+      { "fill": { "type": "panel", "size": [ "100%", "fill" ] } },
+      { "r1@start.btn_row": { "$button_text": "menu.play", "$pressed_button_name": "button.menu_play" } },
+      { "p1": { "type": "panel", "size": [ "100%", 2 ] } },
+      { "r2@start.btn_row": { "$button_text": "menu.settings", "$pressed_button_name": "button.menu_settings" } },
+      { "p2": { "type": "panel", "size": [ "100%", 2 ] } },
+      { "r3@start.btn_row": { "$button_text": "Realms", "$pressed_button_name": "button.menu_realms" } },
+      { "p3": { "type": "panel", "size": [ "100%", 2 ] } },
+      { "r4@start.btn_row": { "$button_text": "Marketplace", "$pressed_button_name": "button.menu_store" } },
+      { "fill2": { "type": "panel", "size": [ "100%", "fill" ] } }
+    ]
+  },
+
+  "btn_row": {
+    "type": "panel",
+    "size": [ "100%", 30 ], // Exact height you wanted
+    "controls": [ 
+      { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } } 
+    ]
+  }
+},
+
+  "text_panel": {
+    "type": "panel",
+    "size": [ "100%-20px", 20 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      { "v": { "type": "label", "text": "#version", "anchor_from": "bottom_right", "anchor_to": "bottom_right", "bindings": [ { "binding_name": "#version" } ] } },
+      { "c": { "type": "label", "text": "©Mojang AB", "anchor_from": "bottom_left", "anchor_to": "bottom_left" } }
+    ]
+  }
+}

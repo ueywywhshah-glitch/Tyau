@@ -1,0 +1,38 @@
+{
+  "namespace": "video_settings",
+
+  "video_panel": {
+    "type": "stack_panel",
+    "size": [ "100% - 140px", "100% - 40px" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -10, 0 ],
+    "controls": [
+      { "fov_slider@video_settings.slider_row": { "$option_label": "options.fov", "$slider_binding": "#fov" } },
+      { "gap1": { "type": "panel", "size": [ "100%", 4 ] } },
+      { "render_dist@video_settings.slider_row": { "$option_label": "options.renderdistance", "$slider_binding": "#render_distance" } },
+      { "gap2": { "type": "panel", "size": [ "100%", 10 ] } },
+      { "fancy_toggle@video_settings.toggle_row": { "$option_label": "options.fancygraphics", "$toggle_binding": "#fancy_graphics" } }
+    ]
+  },
+
+  "slider_row": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "controls": [
+      { "bg@common_buttons.client_button_panel": { "alpha": 0.2, "layer": 1 } },
+      { "label": { "type": "label", "text": "$option_label", "offset": [ 10, 0 ], "anchor_from": "left_middle", "anchor_to": "left_middle", "layer": 2 } },
+      { "slider@common_buttons.premium_slider": { "size": [ 100, 20 ], "anchor_from": "right_middle", "anchor_to": "right_middle", "offset": [ -10, 0 ], "layer": 2 } }
+    ]
+  },
+
+  "toggle_row": {
+    "type": "panel",
+    "size": [ "100%", 35 ],
+    "controls": [
+      { "bg@common_buttons.client_button_panel": { "alpha": 0.2, "layer": 1 } },
+      { "label": { "type": "label", "text": "$option_label", "offset": [ 10, 0 ], "anchor_from": "left_middle", "anchor_to": "left_middle", "layer": 2 } },
+      { "toggle@common_buttons.premium_toggle": { "anchor_from": "right_middle", "anchor_to": "right_middle", "offset": [ -15, 0 ], "layer": 2 } }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "namespace": "settings_start",
+
+  "settings_screen@common.base_screen": {
+    "$screen_bg_content": "RPC_BGDATA.UI2", // Keeping your custom background
+    "$screen_content": "settings_start.settings_screen_content"
+  },
+
+  "settings_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "sidebar@settings_start.category_stack": {} },
+      { "options_view@settings_start.options_panel": {} }
+    ]
+  },
+
+  "category_stack": {
+    "type": "stack_panel",
+    "size": [ 120, "100%" ], // Matching your Main Menu width
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [ 20, 0 ],
+    "controls": [
+      { "fill": { "type": "panel", "size": [ "100%", "fill" ] } },
+      { "video@settings_start.cat_row": { "$button_text": "Video", "$category_binding": "#video_tab" } },
+      { "p1": { "type": "panel", "size": [ "100%", 4 ] } },
+      { "audio@settings_start.cat_row": { "$button_text": "Audio", "$category_binding": "#audio_tab" } },
+      { "p2": { "type": "panel", "size": [ "100%", 4 ] } },
+      { "ctrl@settings_start.cat_row": { "$button_text": "Controls", "$category_binding": "#controls_tab" } },
+      { "fill2": { "type": "panel", "size": [ "100%", "fill" ] } }
+    ]
+  },
+
+  "cat_row": {
+    "type": "panel",
+    "size": [ "100%", 30 ],
+    "controls": [
+      { "b@common_buttons.light_text_button": {} }
+    ]
+  }
+}

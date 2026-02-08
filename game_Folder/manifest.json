@@ -1,0 +1,22 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "FPS Boost & UI Optimization",
+    "name": "Wolf Client",
+    "uuid": "9afa3a73-6b64-4f5a-9a61-ff786b3c9852",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 100]
+  },
+  "modules": [
+    {
+      "description": "WolfClient Resources",
+      "type": "resources",
+      "uuid": "ec1f1912-e4c7-4426-b086-2c8301a8b59c",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["TLWTryoo"],
+    "default_locale": "en_US"
+  }
+}
