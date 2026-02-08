@@ -98,7 +98,7 @@
                 "texture": "textures/gui/client/btn_default",
                 "nineslice_size": 4.0,
                 "size": [ "100%", "100%" ],
-                "alpha": 0.25,
+                "alpha": "$button_alpha_default",
                 "layer": 1
               }
             },
@@ -316,7 +316,7 @@
           "texture": "textures/gui/client/btn_default",
           "nineslice_size": 4.0,
           "size": [ "100%", "100%" ],
-          "alpha": 0.25,
+          "alpha": "$button_alpha_default",
           "layer": 1
         }
       },
@@ -355,7 +355,7 @@
           "texture": "textures/gui/client/btn_default",
           "nineslice_size": 4.0,
           "size": [ "100%", "100%" ],
-          "alpha": 0.2,
+          "alpha": "$bg_alpha_subtle",
           "layer": 1
         }
       },

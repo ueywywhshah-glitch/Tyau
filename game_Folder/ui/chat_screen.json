@@ -124,7 +124,7 @@
       {
         "text": {
           "type": "label",
-          "color": [ 1, 1, 1 ],
+          "color": "$color_white",
           "localize": false,
           "size": [ "100%", "default" ],
           "text": "#text",
@@ -196,7 +196,7 @@
           "type": "image",
           "texture": "textures/gui/client/btn_default",
           "size": [ "100%", "100%" ],
-          "alpha": 0.4,
+          "alpha": "$header_bg_alpha",
           "layer": 40
         }
       },

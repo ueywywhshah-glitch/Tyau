@@ -216,7 +216,7 @@
         "item_label": {
           "type": "label",
           "text": "$item_name",
-          "color": "$color_white_dim",
+          "color": "$color_white",
           "size": [ "100%", 20 ],
           "anchor_from": "center",
           "anchor_to": "center",
