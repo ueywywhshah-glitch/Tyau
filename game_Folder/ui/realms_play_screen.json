@@ -1,0 +1,129 @@
+{
+  "namespace": "realms_play_screen",
+
+  "$realms_menu_width": "40%c",
+  "$realms_menu_height": "70%c",
+
+  "realms_play_screen@common.screen": {
+    "$screen_bg_content": "wolf_bg.custom_bg_panel",
+    "$screen_content": "realms_play_screen.realms_content"
+  },
+
+  "realms_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "main_panel": {
+          "type": "panel",
+          "size": [ "$realms_menu_width", "$realms_menu_height" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 40,
+          "controls": [
+            {
+              "frame_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.8,
+                "layer": 40
+              }
+            },
+            {
+              "frame_bg": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.05, 0.05, 0.1 ],
+                "alpha": 0.9,
+                "layer": 39
+              }
+            },
+            {
+              "content_stack": {
+                "type": "stack_panel",
+                "orientation": "vertical",
+                "size": [ "calc(100% - 30px)", "calc(100% - 30px)" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42,
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "text": "MINECRAFT REALMS",
+                      "color": "$color_cyan",
+                      "size": [ "100%", "default" ],
+                      "font_size": "large",
+                      "shadow": true,
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "title_spacing": {
+                      "type": "panel",
+                      "size": [ "100%", 15 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "create_realm@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Create Realm",
+                      "$pressed_button_name": "button.create_realm",
+                      "$focus_id": "realms_create",
+                      "$focus_change_down": "realms_list",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_1": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "list_realms@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "My Realms",
+                      "$pressed_button_name": "button.list_realms",
+                      "$focus_id": "realms_list",
+                      "$focus_change_up": "realms_create",
+                      "$focus_change_down": "realms_back",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_2": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "back@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Back",
+                      "$pressed_button_name": "button.menu_back",
+                      "$focus_id": "realms_back",
+                      "$focus_change_up": "realms_list",
+                      "layer": 42
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "namespace": "play_screen",
+
+  "$play_menu_width": "40%c",
+  "$play_menu_height": "70%c",
+
+  "play_screen@common.screen": {
+    "$screen_bg_content": "wolf_bg.custom_bg_panel",
+    "$screen_content": "play_screen.play_content"
+  },
+
+  "play_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "main_panel": {
+          "type": "panel",
+          "size": [ "$play_menu_width", "$play_menu_height" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 40,
+          "controls": [
+            {
+              "frame_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.8,
+                "layer": 40
+              }
+            },
+            {
+              "frame_bg": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.05, 0.05, 0.1 ],
+                "alpha": 0.9,
+                "layer": 39
+              }
+            },
+            {
+              "content_stack": {
+                "type": "stack_panel",
+                "orientation": "vertical",
+                "size": [ "calc(100% - 30px)", "calc(100% - 30px)" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42,
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "text": "SELECT WORLD",
+                      "color": "$color_cyan",
+                      "size": [ "100%", "default" ],
+                      "font_size": "large",
+                      "shadow": true,
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "title_spacing": {
+                      "type": "panel",
+                      "size": [ "100%", 15 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "new_world@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "New World",
+                      "$pressed_button_name": "button.new_world",
+                      "$focus_id": "play_new_world",
+                      "$focus_change_down": "play_load_world",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_1": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "load_world@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Load World",
+                      "$pressed_button_name": "button.load_world",
+                      "$focus_id": "play_load_world",
+                      "$focus_change_up": "play_new_world",
+                      "$focus_change_down": "play_back",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_2": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "back@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Back",
+                      "$pressed_button_name": "button.menu_back",
+                      "$focus_id": "play_back",
+                      "$focus_change_up": "play_load_world",
+                      "layer": 42
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

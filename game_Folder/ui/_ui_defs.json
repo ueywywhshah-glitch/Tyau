@@ -1,10 +1,14 @@
 {
   "ui_defs": [
     "ui/common_buttons.json",
+    "ui/main_menu_background.json",
     "ui/MENU/comps/RPC_BGCOMP.uicomponent",
     "ui/MENU/data/RPC_BGDATA.uidata",
     "ui/loading_screen.json",
     "ui/start_screen.json",
+    "ui/play_screen.json",
+    "ui/realms_play_screen.json",
+    "ui/server_screen.json",
     "ui/pause_screen.json",
     "ui/chat_screen.json",
     "ui/settings_screen.json",

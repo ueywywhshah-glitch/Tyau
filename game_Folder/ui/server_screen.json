@@ -1,0 +1,129 @@
+{
+  "namespace": "server_screen",
+
+  "$server_menu_width": "40%c",
+  "$server_menu_height": "70%c",
+
+  "server_screen@common.screen": {
+    "$screen_bg_content": "wolf_bg.custom_bg_panel",
+    "$screen_content": "server_screen.server_content"
+  },
+
+  "server_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "main_panel": {
+          "type": "panel",
+          "size": [ "$server_menu_width", "$server_menu_height" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 40,
+          "controls": [
+            {
+              "frame_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.8,
+                "layer": 40
+              }
+            },
+            {
+              "frame_bg": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.05, 0.05, 0.1 ],
+                "alpha": 0.9,
+                "layer": 39
+              }
+            },
+            {
+              "content_stack": {
+                "type": "stack_panel",
+                "orientation": "vertical",
+                "size": [ "calc(100% - 30px)", "calc(100% - 30px)" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42,
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "text": "MULTIPLAYER SERVER",
+                      "color": "$color_cyan",
+                      "size": [ "100%", "default" ],
+                      "font_size": "large",
+                      "shadow": true,
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "title_spacing": {
+                      "type": "panel",
+                      "size": [ "100%", 15 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "join_server@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Join Server",
+                      "$pressed_button_name": "button.join_server",
+                      "$focus_id": "server_join",
+                      "$focus_change_down": "server_add",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_1": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "add_server@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Add Server",
+                      "$pressed_button_name": "button.add_server",
+                      "$focus_id": "server_add",
+                      "$focus_change_up": "server_join",
+                      "$focus_change_down": "server_back",
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "spacing_2": {
+                      "type": "panel",
+                      "size": [ "100%", 8 ],
+                      "layer": 1
+                    }
+                  },
+                  {
+                    "back@common_buttons.light_text_button": {
+                      "size": [ "100%", 35 ],
+                      "$button_size": [ "100%", 35 ],
+                      "$button_text": "Back",
+                      "$pressed_button_name": "button.menu_back",
+                      "$focus_id": "server_back",
+                      "$focus_change_up": "server_add",
+                      "layer": 42
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -257,5 +257,32 @@
   "icon_button@common_buttons.simple_button": {
     "size": [ 32, 32 ],
     "$button_text": ""
+  },
+
+  "custom_background": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 1,
+    "controls": [
+      {
+        "menu_bg": {
+          "type": "image",
+          "texture": "textures/ui/BACKGROUND/MENU_BG",
+          "size": [ "100%", "100%" ],
+          "fill": true,
+          "layer": 1
+        }
+      },
+      {
+        "vignette_overlay": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.0, 0.0, 0.0 ],
+          "alpha": 0.5,
+          "layer": 2
+        }
+      }
+    ]
   }
 }
