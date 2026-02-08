@@ -10,6 +10,7 @@
     "ui/controls_settings.json",
     "ui/performance_settings.json",
     "ui/profile_screen.json",
+    "ui/notifications.json",
     "ui/video_screen.json"
   ]
 }

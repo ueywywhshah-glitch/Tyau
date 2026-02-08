@@ -1,0 +1,393 @@
+{
+  "namespace": "notifications",
+
+  "notification_panel": {
+    "type": "panel",
+    "size": [ 350, "100%" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [ -10, 10 ],
+    "layer": 100,
+    "controls": [
+      { "notification_stack@notifications.notification_stack": {} }
+    ]
+  },
+
+  "notification_stack": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "100%", "100%c" ],
+    "controls": []
+  },
+
+  "toast_notification": {
+    "type": "panel",
+    "size": [ 320, 60 ],
+    "controls": [
+      {
+        "notification_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.3,
+          "layer": 1
+        }
+      },
+      {
+        "notification_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 2
+        }
+      },
+      {
+        "notification_accent": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "nineslice_size": 4.0,
+          "size": [ 3, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3
+        }
+      },
+      {
+        "notification_icon_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ 40, 40 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [ 8, 0 ],
+          "alpha": 0.15,
+          "layer": 2
+        }
+      },
+      {
+        "notification_icon": {
+          "type": "image",
+          "texture": "$notification_icon",
+          "size": [ 24, 24 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [ 8, 0 ],
+          "layer": 3,
+          "color": "$notification_color"
+        }
+      },
+      {
+        "notification_title": {
+          "type": "label",
+          "text": "$notification_title",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 60, -12 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3,
+          "size": [ 250, 15 ]
+        }
+      },
+      {
+        "notification_message": {
+          "type": "label",
+          "text": "$notification_message",
+          "color": [ 0.8, 0.8, 0.8 ],
+          "offset": [ 60, 8 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3,
+          "size": [ 250, 24 ]
+        }
+      },
+      {
+        "close_btn@notifications.notification_close_btn": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "offset": [ -5, 0 ]
+        }
+      }
+    ]
+  },
+
+  "notification_close_btn": {
+    "type": "button",
+    "size": [ 24, 24 ],
+    "controls": [
+      {
+        "close_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.2,
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_name": "(not #is_button_hovered and not #is_button_pressed)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "close_hover": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_hover",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.5,
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_name": "#is_button_hovered",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "close_icon": {
+          "type": "label",
+          "text": "✕",
+          "color": [ 1, 1, 1 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  "info_notification@notifications.toast_notification": {
+    "$notification_color": [ 0, 1, 1 ],
+    "$notification_icon": "textures/gui/client/icon_info"
+  },
+
+  "success_notification@notifications.toast_notification": {
+    "$notification_color": [ 0, 1, 0 ],
+    "$notification_icon": "textures/gui/client/icon_success"
+  },
+
+  "warning_notification@notifications.toast_notification": {
+    "$notification_color": [ 1, 1, 0 ],
+    "$notification_icon": "textures/gui/client/icon_warning"
+  },
+
+  "error_notification@notifications.toast_notification": {
+    "$notification_color": [ 1, 0, 0 ],
+    "$notification_icon": "textures/gui/client/icon_error"
+  },
+
+  "inline_alert_panel": {
+    "type": "panel",
+    "size": [ "95%c", 45 ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 15 ],
+    "controls": [
+      {
+        "alert_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": "$alert_bg_alpha",
+          "layer": 1
+        }
+      },
+      {
+        "alert_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 2
+        }
+      },
+      {
+        "alert_accent": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_pressed",
+          "nineslice_size": 4.0,
+          "size": [ 3, "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3,
+          "color": "$alert_color"
+        }
+      },
+      {
+        "alert_icon": {
+          "type": "image",
+          "texture": "$alert_icon",
+          "size": [ 20, 20 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [ 12, 0 ],
+          "layer": 3,
+          "color": "$alert_color"
+        }
+      },
+      {
+        "alert_title": {
+          "type": "label",
+          "text": "$alert_title",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 45, -8 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3
+        }
+      },
+      {
+        "alert_message": {
+          "type": "label",
+          "text": "$alert_message",
+          "color": [ 0.8, 0.8, 0.8 ],
+          "offset": [ 45, 8 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 3,
+          "size": [ 500, 15 ]
+        }
+      }
+    ]
+  },
+
+  "info_alert@notifications.inline_alert_panel": {
+    "$alert_color": [ 0, 1, 1 ],
+    "$alert_icon": "textures/gui/client/icon_info",
+    "$alert_bg_alpha": 0.15
+  },
+
+  "success_alert@notifications.inline_alert_panel": {
+    "$alert_color": [ 0, 1, 0 ],
+    "$alert_icon": "textures/gui/client/icon_success",
+    "$alert_bg_alpha": 0.15
+  },
+
+  "warning_alert@notifications.inline_alert_panel": {
+    "$alert_color": [ 1, 1, 0 ],
+    "$alert_icon": "textures/gui/client/icon_warning",
+    "$alert_bg_alpha": 0.2
+  },
+
+  "error_alert@notifications.inline_alert_panel": {
+    "$alert_color": [ 1, 0, 0 ],
+    "$alert_icon": "textures/gui/client/icon_error",
+    "$alert_bg_alpha": 0.25
+  },
+
+  "dialog_notification": {
+    "type": "panel",
+    "size": [ 400, 180 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 200,
+    "controls": [
+      {
+        "dialog_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "alpha": 0.4,
+          "layer": 1
+        }
+      },
+      {
+        "dialog_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", "100%" ],
+          "layer": 2
+        }
+      },
+      {
+        "dialog_title_bg": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "nineslice_size": 4.0,
+          "size": [ "100%", 35 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "alpha": 0.2,
+          "layer": 2
+        }
+      },
+      {
+        "dialog_title_border": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_border",
+          "nineslice_size": 4.0,
+          "size": [ "100%", 35 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 3
+        }
+      },
+      {
+        "dialog_title": {
+          "type": "label",
+          "text": "$dialog_title",
+          "color": [ 0, 1, 1 ],
+          "offset": [ 0, 0 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 4
+        }
+      },
+      {
+        "dialog_message": {
+          "type": "label",
+          "text": "$dialog_message",
+          "color": [ 1, 1, 1 ],
+          "offset": [ 0, 55 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 4,
+          "size": [ 380, 50 ]
+        }
+      },
+      {
+        "confirm_btn@common_buttons.simple_button": {
+          "size": [ 85, 28 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -10, -10 ],
+          "$button_text": "Confirm",
+          "$button_size": [ 85, 28 ],
+          "$pressed_button_name": "button.dialog_confirm",
+          "layer": 5
+        }
+      },
+      {
+        "cancel_btn@common_buttons.simple_button": {
+          "size": [ 85, 28 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -105, -10 ],
+          "$button_text": "Cancel",
+          "$button_size": [ 85, 28 ],
+          "$pressed_button_name": "button.dialog_cancel",
+          "layer": 5
+        }
+      }
+    ]
+  },
+
+  "confirm_dialog@notifications.dialog_notification": {
+    "$dialog_title": "Confirm Action",
+    "$dialog_message": "Are you sure you want to proceed?"
+  },
+
+  "warning_dialog@notifications.dialog_notification": {
+    "$dialog_title": "Warning",
+    "$dialog_message": "This action cannot be undone."
+  }
+}
