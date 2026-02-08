@@ -27,7 +27,6 @@
     ]
   },
 
-  /* KEYBOARD TOGGLE BUTTON */
   "keyboard_button@common_buttons.light_text_button": {
     "size": [ 27, 27 ],
     "$button_size": [ 27, 27 ],
@@ -45,7 +44,6 @@
     ]
   },
 
-  /* GLYPH BUTTONS (Settings, Arrows, Autocomplete) */
   "chat_settings_button@common_buttons.light_text_button": { 
     "size": [ 27, 27 ], 
     "$button_size": [ 27, 27 ],
@@ -102,7 +100,6 @@
     "$button_alpha_pressed": 1.0
   },
 
-  /* SEND BUTTON */
   "send_button@common_buttons.light_text_button": {
     "size": [ "200%c", 27 ],
     "$button_size": [ "200%c", 27 ],
@@ -193,7 +190,7 @@
       {
         "header_bg": {
           "type": "image",
-          "texture": "textures/gui/client/btn_default", // Your custom texture
+          "texture": "textures/gui/client/btn_default",
           "size": [ "100%", "100%" ],
           "alpha": 0.4,
           "layer": 1
@@ -202,7 +199,7 @@
       {
         "header_border": {
           "type": "image",
-          "texture": "textures/gui/client/btn_border", // Your cyan border
+          "texture": "textures/gui/client/btn_border",
           "size": [ "100%", "100%" ],
           "layer": 3
         }
@@ -211,7 +208,7 @@
         "title": { 
           "type": "label", 
           "text": "WOLF CLIENT | CHAT", 
-          "color": [ 0, 1, 1 ], // Cyan text
+          "color": [ 0, 1, 1 ],
           "offset": [ 5, 0 ], 
           "anchor_from": "left_middle", 
           "anchor_to": "left_middle",
@@ -230,8 +227,8 @@
     "type": "panel",
     "controls": [
       { "messages_panel@chat.messages_scrolling_panel": { "layer": 1 } },
-      { "chat_bottom_panel@chat.chat_bottom_panel": { "layer": 5 } }, // Lifted buttons
-      { "chat_top_panel@chat.chat_header": { "layer": 5 } }  // Fixed header
+      { "chat_bottom_panel@chat.chat_bottom_panel": { "layer": 5 } },
+      { "chat_top_panel@chat.chat_header": { "layer": 5 } }
     ]
   },
   

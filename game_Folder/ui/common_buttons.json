@@ -3,7 +3,7 @@
 
   "$button_size": [ "100%", "100%" ],
   "$button_text": "",
-  "$button_content": "common_buttons.empty_content",
+  "$button_content": "common_buttons.empty_panel",
   "$button_texture_default": "textures/gui/client/btn_default",
   "$button_texture_hover": "textures/gui/client/btn_hover",
   "$button_texture_pressed": "textures/gui/client/btn_pressed",
@@ -13,13 +13,11 @@
   "$button_alpha_pressed": 1.0,
   "$button_nineslice": 4.0,
 
-  // Empty content panel for buttons without custom content
-  "empty_content": {
+  "empty_panel": {
     "type": "panel",
     "size": [ 0, 0 ]
   },
 
-  // 1. Image Shortcut
   "client_button_panel": {
     "type": "image",
     "texture": "$button_texture_default",
@@ -27,7 +25,6 @@
     "size": [ "100%", "100%" ]
   },
 
-  // 2. Global Wrapper with Custom Content Support
   "light_text_button@common.button": {
     "size": "$button_size",
     "controls": [
@@ -35,7 +32,6 @@
     ]
   },
 
-  // 3. Main Button Logic with Advanced State Management
   "simple_button@common.button": {
     "size": "$button_size",
     "controls": [
@@ -94,13 +90,7 @@
           "nineslice_size": "$button_nineslice",
           "layer": 4,
           "size": [ "100%", "100%" ],
-          "alpha": 1.0,
-          "bindings": [
-            {
-              "binding_name": "true",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "alpha": 1.0
         }
       },
       {
@@ -133,8 +123,6 @@
     ]
   },
 
-
-  // 4. Premium Settings: Toggle (Switch Style) - Advanced JSON UI
   "premium_toggle": {
     "type": "toggle",
     "size": [ 44, 24 ],
@@ -183,20 +171,12 @@
           "size": [ 18, 18 ],
           "layer": 4,
           "anchor_from": "center",
-          "anchor_to": "center",
-          "offset": [
-            {
-              "binding_name": "#toggle_state",
-              "binding_type": "collection",
-              "source_control_name": "toggle_knob"
-            }
-          ]
+          "anchor_to": "center"
         }
       }
     ]
   },
 
-  // 5. Premium Settings: Slider - Advanced JSON UI
   "premium_slider": {
     "type": "slider",
     "size": [ "100%", 20 ],
@@ -241,7 +221,6 @@
     ]
   },
 
-  // 6. Advanced Button Variants
   "primary_button@common_buttons.simple_button": {
     "$button_texture_hover": "textures/gui/client/btn_hover",
     "$button_alpha_hover": 0.8
@@ -257,21 +236,4 @@
     "size": [ 32, 32 ],
     "$button_text": ""
   }
-}
-"simple_button@common.button": {
-      "size": [ "100%", "100%" ],
-          "controls": [
-                { "default@common_buttons.button_state": { "texture": "textures/gui/client/btn_default", "alpha": 0.25, "binding": "(not #is_button_hovered and not #is_button_pressed)" } },
-                      { "hover@common_buttons.button_state": { "texture": "textures/gui/client/btn_hover", "alpha": 0.65, "binding": "#is_button_hovered" } },
-                            { "pressed@common_buttons.button_state": { "texture": "textures/gui/client/btn_pressed", "alpha": 1.0, "binding": "#is_button_pressed" } },
-                                  { "border": { "type": "image", "texture": "textures/gui/client/btn_border", "layer": 5 } },
-                                        { 
-                                                "content_holder": { 
-                                                          "type": "panel", 
-                                                                    "layer": 6, 
-                                                                              "controls": [ { "content@$button_content": { } } ] 
-                                                                                      } 
-                                                                                            }
-                                                                                                ]
-                                                                                                  }
 }

@@ -16,8 +16,6 @@
     "type": "panel",
     "controls": [
       { "main_menu@start.main_buttons_stack_panel": {} },
-      
-      // PLAYER TAG - TOP RIGHT
       {
         "tag_container": {
           "type": "panel",
@@ -38,15 +36,13 @@
           ]
         }
       },
-
-      // DRESSING ROOM - MATCHES MAIN MENU SIZE
       {
         "dr_container": {
           "type": "panel",
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right",
           "offset": [ -10, -35 ],
-          "size": [ 120, 30 ], // Same width and height as main menu
+          "size": [ 120, 30 ],
           "controls": [
             {
               "dr_btn@common_buttons.simple_button": {
@@ -63,7 +59,7 @@
 
   "main_buttons_stack_panel": {
     "type": "stack_panel",
-    "size": [ 120, "100%" ], 
+    "size": [ 120, "100%" ],
     "anchor_from": "left_middle",
     "anchor_to": "left_middle",
     "offset": [ 20, 0 ],
@@ -82,9 +78,9 @@
 
   "btn_row": {
     "type": "panel",
-    "size": [ "100%", 30 ], // Exact height you wanted
-    "controls": [ 
-      { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } } 
+    "size": [ "100%", 30 ],
+    "controls": [
+      { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } }
     ]
   },
 
