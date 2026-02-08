@@ -1,19 +1,10 @@
 {
   "namespace": "trade2_pocket",
 
-  "$safezone_width": "90%c",
-  "$safezone_height": "90%c",
-
-  "$header_height": 30,
   "$spacing_gap": 2,
   "$spacing_medium": 6,
   "$spacing_large": 10,
 
-  "$color_cyan": [ 0, 1, 1 ],
-  "$color_white": [ 1, 1, 1 ],
-  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
-
-  "$panel_bg_alpha": 0.15,
   "$padding_item_size_large": "200%c",
   "$padding_item_size_medium": "150%c",
 

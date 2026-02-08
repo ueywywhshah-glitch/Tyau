@@ -1,22 +1,6 @@
 {
   "namespace": "crafting",
 
-  "$safezone_width": "90%c",
-  "$safezone_height": "90%c",
-
-  "$header_height": 30,
-  "$spacing_gap": 4,
-  "$spacing_medium": 8,
-  "$spacing_large": 12,
-
-  "$color_cyan": [ 0, 1, 1 ],
-  "$color_cyan_secondary": [ 0.7, 1, 1 ],
-  "$color_white": [ 1, 1, 1 ],
-  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
-
-  "$panel_bg_alpha": 0.15,
-  "$bg_alpha_subtle": 0.2,
-
   "crafting_table_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [

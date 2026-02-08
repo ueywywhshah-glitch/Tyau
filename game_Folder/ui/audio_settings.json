@@ -1,8 +1,6 @@
 {
   "namespace": "audio_settings",
 
-  "$color_cyan": [ 0, 1, 1 ],
-
   "audio_settings_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [

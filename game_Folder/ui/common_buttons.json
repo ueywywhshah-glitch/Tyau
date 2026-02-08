@@ -2,11 +2,26 @@
   "namespace": "common_buttons",
 
   "$color_cyan": [ 0, 1, 1 ],
+  "$color_cyan_secondary": [ 0.7, 1, 1 ],
   "$color_white": [ 1, 1, 1 ],
   "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+  
   "$glass_alpha": 0.15,
+  "$panel_bg_alpha": 0.15,
+  "$bg_alpha_subtle": 0.2,
+  "$header_bg_alpha": 0.4,
+  
   "$btn_height": 19,
   "$header_height": 30,
+  "$back_button_width": 50,
+  "$back_button_height": 19,
+  "$button_size_small": 27,
+
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+  "$spacing_gap": 4,
+  "$spacing_medium": 8,
+  "$spacing_large": 12,
 
   "$button_size": [ "100%", "100%" ],
   "$button_text": "",

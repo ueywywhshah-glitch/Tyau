@@ -1,8 +1,6 @@
 {
   "namespace": "profile_screen",
 
-  "$color_cyan": [ 0, 1, 1 ],
-
   "profile_cosmetics_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [

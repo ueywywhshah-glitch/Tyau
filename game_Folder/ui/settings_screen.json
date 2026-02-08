@@ -1,8 +1,6 @@
 {
   "namespace": "settings_start",
 
-  "$color_cyan": [ 0, 1, 1 ],
-
   "settings_screen@common.base_screen": {
     "$screen_bg_content": "RPC_BGDATA.UI2",
     "$screen_animations": [

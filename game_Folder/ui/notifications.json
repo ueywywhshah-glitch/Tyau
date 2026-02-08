@@ -1,8 +1,6 @@
 {
   "namespace": "notifications",
 
-  "$color_cyan": [ 0, 1, 1 ],
-
   "notification_panel": {
     "type": "panel",
     "size": [ 350, "100%" ],

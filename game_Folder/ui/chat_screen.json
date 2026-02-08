@@ -1,14 +1,6 @@
 {
   "namespace": "chat",
 
-  "$color_cyan": [ 0, 1, 1 ],
-  "$color_white": [ 1, 1, 1 ],
-  "$header_bg_alpha": 0.4,
-  "$header_height": 19,
-  "$button_size_small": 27,
-  "$back_button_width": 50,
-  "$back_button_height": 19,
-
   "down_arrow_image": { "type": "image", "size": [ 7, 8 ], "texture": "textures/ui/chat_down_arrow" },
   "keyboard_image": { "type": "image", "size": [ 9, 7 ], "texture": "textures/ui/chat_keyboard" },
   "gear_image": { "type": "image", "size": [ 14, 14 ], "texture": "textures/ui/gear" },
