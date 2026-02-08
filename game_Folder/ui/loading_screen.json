@@ -1,0 +1,157 @@
+{
+  "namespace": "loading",
+
+  "$loading_bar_width": "60%c",
+  "$loading_bar_height": 25,
+  "$loading_bar_corner": 3,
+
+  "loading_screen@common.base_screen": {
+    "$screen_bg_content": "loading.screen_background",
+    "$screen_content": "loading.screen_content"
+  },
+
+  "screen_background": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "dark_background": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.08 ],
+          "alpha": 1.0,
+          "layer": 1
+        }
+      },
+      {
+        "cyan_vignette": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_default",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.08,
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  "progress_bar_background": {
+    "type": "panel",
+    "size": [ "$loading_bar_width", "$loading_bar_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": [ 0, 15 ],
+    "controls": [
+      {
+        "bar_outline": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 41
+        }
+      },
+      {
+        "bar_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.1, 0.1, 0.15 ],
+          "alpha": 0.8,
+          "layer": 40
+        }
+      },
+      {
+        "bar_fill": {
+          "type": "image",
+          "texture": "$button_texture_pressed",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "#screen_loading_percentage%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 1.0,
+          "layer": 42,
+          "bindings": [
+            {
+              "binding_name": "#screen_loading_percentage"
+            }
+          ]
+        }
+      },
+      {
+        "bar_glow": {
+          "type": "image",
+          "texture": "textures/gui/client/btn_hover",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "#screen_loading_percentage%", "100%" ],
+          "color": "$color_cyan_secondary",
+          "alpha": 0.4,
+          "layer": 43,
+          "bindings": [
+            {
+              "binding_name": "#screen_loading_percentage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "branding_label": {
+    "type": "label",
+    "text": "WOLF CLIENT",
+    "color": "$color_cyan",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": [ 0, -30 ],
+    "layer": 50,
+    "font_size": "large",
+    "shadow": true
+  },
+
+  "loading_tips_text": {
+    "type": "label",
+    "text": "#loading_tip",
+    "color": "$color_white",
+    "anchor_from": "bottom_center",
+    "anchor_to": "bottom_center",
+    "offset": [ 0, -20 ],
+    "size": [ "80%c", "default" ],
+    "layer": 50,
+    "shadow": true,
+    "localize": false,
+    "bindings": [
+      {
+        "binding_name": "#loading_tip"
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "branding@loading.branding_label": {
+          "layer": 5
+        }
+      },
+      {
+        "loading_bar@loading.progress_bar_background": {
+          "layer": 6
+        }
+      },
+      {
+        "tips@loading.loading_tips_text": {
+          "layer": 7
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "namespace": "pause_screen",
+
+  "$pause_menu_width": "35%c",
+  "$pause_menu_height": "65%c",
+  "$pause_button_height": 35,
+  "$pause_button_spacing": 8,
+  "$pause_panel_padding": 15,
+
+  "pause_screen@common.base_screen": {
+    "$screen_bg_content": "pause_screen.screen_background",
+    "$screen_content": "pause_screen.screen_content"
+  },
+
+  "screen_background": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "dark_overlay": {
+          "type": "image",
+          "texture": "textures/ui/White",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.0, 0.0, 0.0 ],
+          "alpha": 0.5,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "pause_menu_frame": {
+    "type": "panel",
+    "size": [ "$pause_menu_width", "$pause_menu_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "frame_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.8,
+          "layer": 40
+        }
+      },
+      {
+        "frame_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.9,
+          "layer": 39
+        }
+      }
+    ]
+  },
+
+  "pause_menu_content": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ "calc(100% - 30px)", "calc(100% - 30px)" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": [ 0, 0 ],
+    "layer": 42,
+    "controls": [
+      {
+        "pause_title": {
+          "type": "label",
+          "text": "GAME PAUSED",
+          "color": "$color_cyan",
+          "size": [ "100%", "default" ],
+          "font_size": "large",
+          "shadow": true,
+          "layer": 42
+        }
+      },
+      {
+        "title_spacing": {
+          "type": "panel",
+          "size": [ "100%", 15 ],
+          "layer": 1
+        }
+      },
+      {
+        "resume_button@common_buttons.light_text_button": {
+          "size": [ "100%", "$pause_button_height" ],
+          "$button_size": [ "100%", "$pause_button_height" ],
+          "$button_text": "Resume Game",
+          "$pressed_button_name": "button.game_resume",
+          "$focus_id": "pause_resume_button",
+          "$focus_change_down": "pause_settings_button",
+          "layer": 42
+        }
+      },
+      {
+        "button_spacing_1": {
+          "type": "panel",
+          "size": [ "100%", "$pause_button_spacing" ],
+          "layer": 1
+        }
+      },
+      {
+        "settings_button@common_buttons.light_text_button": {
+          "size": [ "100%", "$pause_button_height" ],
+          "$button_size": [ "100%", "$pause_button_height" ],
+          "$button_text": "Settings",
+          "$pressed_button_name": "button.pause_settings",
+          "$focus_id": "pause_settings_button",
+          "$focus_change_up": "pause_resume_button",
+          "$focus_change_down": "pause_quit_button",
+          "layer": 42
+        }
+      },
+      {
+        "button_spacing_2": {
+          "type": "panel",
+          "size": [ "100%", "$pause_button_spacing" ],
+          "layer": 1
+        }
+      },
+      {
+        "quit_button@common_buttons.light_text_button": {
+          "size": [ "100%", "$pause_button_height" ],
+          "$button_size": [ "100%", "$pause_button_height" ],
+          "$button_text": "Quit to Menu",
+          "$pressed_button_name": "button.pause_quit",
+          "$focus_id": "pause_quit_button",
+          "$focus_change_up": "pause_settings_button",
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "$safezone_width", "$safezone_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "pause_frame@pause_screen.pause_menu_frame": {
+          "layer": 38
+        }
+      },
+      {
+        "pause_content@pause_screen.pause_menu_content": {
+          "layer": 42
+        }
+      }
+    ]
+  }
+}
