@@ -1,0 +1,272 @@
+{
+  "namespace": "furnace",
+
+  "$container_width": "85%c",
+  "$container_height": "80%c",
+  "$slot_size": 32,
+  "$slot_spacing": 2,
+  "$progress_bar_width": "25%",
+  "$progress_bar_height": 12,
+
+  "furnace_screen@common.base_screen": {
+    "$screen_bg_content": "furnace.screen_background_wrapper",
+    "$screen_content": "furnace.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.75,
+    "layer": 1
+  },
+
+  "container_header": {
+    "type": "panel",
+    "size": [ "100%", 45 ],
+    "anchor_from": "top_center",
+    "anchor_to": "top_center",
+    "layer": 40,
+    "controls": [
+      {
+        "header_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.7,
+          "layer": 40
+        }
+      },
+      {
+        "header_accent": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan_secondary",
+          "alpha": 0.5,
+          "layer": 41
+        }
+      },
+      {
+        "header_title": {
+          "type": "label",
+          "text": "FURNACE",
+          "color": "$color_white",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_size": "large",
+          "shadow": true,
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "container_panel": {
+    "type": "panel",
+    "size": [ "$container_width", "$container_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "panel_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 40
+        }
+      },
+      {
+        "panel_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.7,
+          "layer": 39
+        }
+      },
+      {
+        "input_slot": {
+          "type": "panel",
+          "size": [ "$slot_size", "$slot_size" ],
+          "anchor_from": "left",
+          "anchor_to": "left",
+          "offset": [ "10%", "25%" ],
+          "layer": 42,
+          "controls": [
+            {
+              "slot_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.4,
+                "layer": 42
+              }
+            },
+            {
+              "slot_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.6,
+                "layer": 41
+              }
+            }
+          ]
+        }
+      },
+      {
+        "progress_section": {
+          "type": "panel",
+          "size": [ "$progress_bar_width", "$progress_bar_height" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [ 0, -15 ],
+          "layer": 42,
+          "controls": [
+            {
+              "progress_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.7,
+                "layer": 42
+              }
+            },
+            {
+              "progress_fill": {
+                "type": "image",
+                "texture": "$button_texture_hover",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.9,
+                "layer": 43,
+                "bindings": [
+                  {
+                    "binding_name": "#furnace_smelt_percentage",
+                    "binding_name_override": "#clip_ratio"
+                  }
+                ]
+              }
+            },
+            {
+              "progress_flame_icon": {
+                "type": "image",
+                "texture": "textures/ui/spritesheet_0.png",
+                "uv": [ 16, 16 ],
+                "uv_size": [ 16, 16 ],
+                "size": [ "$progress_bar_height", "$progress_bar_height" ],
+                "anchor_from": "left",
+                "anchor_to": "left",
+                "offset": [ -16, 0 ],
+                "color": "$color_cyan",
+                "alpha": 0.8,
+                "layer": 44
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fuel_slot": {
+          "type": "panel",
+          "size": [ "$slot_size", "$slot_size" ],
+          "anchor_from": "left",
+          "anchor_to": "left",
+          "offset": [ "10%", "60%" ],
+          "layer": 42,
+          "controls": [
+            {
+              "slot_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.4,
+                "layer": 42
+              }
+            },
+            {
+              "slot_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.6,
+                "layer": 41
+              }
+            }
+          ]
+        }
+      },
+      {
+        "output_slot": {
+          "type": "panel",
+          "size": [ "$slot_size", "$slot_size" ],
+          "anchor_from": "right",
+          "anchor_to": "right",
+          "offset": [ "-10%", "25%" ],
+          "layer": 42,
+          "controls": [
+            {
+              "slot_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.4,
+                "layer": 42
+              }
+            },
+            {
+              "slot_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.6,
+                "layer": 41
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "header@furnace.container_header": {
+          "layer": 40
+        }
+      },
+      {
+        "container@furnace.container_panel": {
+          "layer": 38
+        }
+      }
+    ]
+  }
+}

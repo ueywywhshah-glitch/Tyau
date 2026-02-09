@@ -1,0 +1,248 @@
+{
+  "namespace": "progress_screen_ui",
+
+  "progress_screen@common.base_screen": {
+    "$screen_bg_content": "progress_screen_ui.screen_background_wrapper",
+    "$screen_content": "progress_screen_ui.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.70,
+    "layer": 1
+  },
+
+  "progress_panel": {
+    "type": "panel",
+    "size": [ "85%c", "65%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "panel_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.7,
+          "layer": 40
+        }
+      },
+      {
+        "panel_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.85,
+          "layer": 39
+        }
+      },
+      {
+        "content_stack": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "90%", "90%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 42,
+          "controls": [
+            {
+              "title_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "progress_title": {
+                      "type": "label",
+                      "text": "#progress_title",
+                      "color": "$color_cyan",
+                      "size": [ "100%", "auto" ],
+                      "anchor_from": "top_center",
+                      "anchor_to": "top_center",
+                      "font_size": "large",
+                      "shadow": true,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_screen_title"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [ "100%", 25 ],
+                "layer": 42
+              }
+            },
+            {
+              "message_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "progress_message": {
+                      "type": "label",
+                      "text": "#progress_message",
+                      "color": "$color_white",
+                      "size": [ "95%c", "auto" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_size": "small",
+                      "shadow": true,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_screen_message"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_2": {
+                "type": "panel",
+                "size": [ "100%", 30 ],
+                "layer": 42
+              }
+            },
+            {
+              "progress_bar_section": {
+                "type": "panel",
+                "size": [ "80%c", 16 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 42,
+                "controls": [
+                  {
+                    "bar_background": {
+                      "type": "image",
+                      "texture": "$button_texture_default",
+                      "nineslice_size": "$button_nineslice",
+                      "size": [ "100%", "100%" ],
+                      "color": [ 0.1, 0.1, 0.15 ],
+                      "alpha": 0.7,
+                      "layer": 42
+                    }
+                  },
+                  {
+                    "bar_fill": {
+                      "type": "image",
+                      "texture": "$button_texture_hover",
+                      "nineslice_size": "$button_nineslice",
+                      "size": [ "100%", "100%" ],
+                      "color": "$color_cyan",
+                      "alpha": 0.95,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_percentage",
+                          "binding_name_override": "#clip_ratio"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "bar_border": {
+                      "type": "image",
+                      "texture": "$button_texture_border",
+                      "nineslice_size": "$button_nineslice",
+                      "size": [ "100%", "100%" ],
+                      "color": "$color_cyan",
+                      "alpha": 0.6,
+                      "layer": 44
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_3": {
+                "type": "panel",
+                "size": [ "100%", 12 ],
+                "layer": 42
+              }
+            },
+            {
+              "percentage_label": {
+                "type": "label",
+                "text": "#progress_percentage_text",
+                "color": "$color_cyan",
+                "size": [ "100%", "auto" ],
+                "anchor_from": "top_center",
+                "anchor_to": "top_center",
+                "font_size": "small",
+                "shadow": true,
+                "layer": 43,
+                "bindings": [
+                  {
+                    "binding_name": "#progress_percentage",
+                    "binding_name_override": "#progress_percentage_text"
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_4": {
+                "type": "panel",
+                "size": [ "100%", 20 ],
+                "layer": 42
+              }
+            },
+            {
+              "status_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "status_label": {
+                      "type": "label",
+                      "text": "#progress_status",
+                      "color": "$color_white_dim",
+                      "size": [ "95%c", "auto" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_size": "small",
+                      "shadow": true,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_screen_status"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "progress@progress_screen_ui.progress_panel": {
+          "layer": 38
+        }
+      }
+    ]
+  }
+}

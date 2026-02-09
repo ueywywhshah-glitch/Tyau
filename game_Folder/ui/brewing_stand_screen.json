@@ -1,0 +1,331 @@
+{
+  "namespace": "brewing_stand",
+
+  "$container_width": "85%c",
+  "$container_height": "80%c",
+  "$slot_size": 32,
+  "$slot_spacing": 2,
+  "$progress_width": "20%",
+  "$progress_height": 12,
+
+  "brewing_stand_screen@common.base_screen": {
+    "$screen_bg_content": "brewing_stand.screen_background_wrapper",
+    "$screen_content": "brewing_stand.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.75,
+    "layer": 1
+  },
+
+  "container_header": {
+    "type": "panel",
+    "size": [ "100%", 45 ],
+    "anchor_from": "top_center",
+    "anchor_to": "top_center",
+    "layer": 40,
+    "controls": [
+      {
+        "header_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.7,
+          "layer": 40
+        }
+      },
+      {
+        "header_accent": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan_secondary",
+          "alpha": 0.5,
+          "layer": 41
+        }
+      },
+      {
+        "header_title": {
+          "type": "label",
+          "text": "BREWING STAND",
+          "color": "$color_white",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_size": "large",
+          "shadow": true,
+          "layer": 42
+        }
+      }
+    ]
+  },
+
+  "container_panel": {
+    "type": "panel",
+    "size": [ "$container_width", "$container_height" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "panel_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 40
+        }
+      },
+      {
+        "panel_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.7,
+          "layer": 39
+        }
+      },
+      {
+        "input_slot": {
+          "type": "panel",
+          "size": [ "$slot_size", "$slot_size" ],
+          "anchor_from": "left",
+          "anchor_to": "left",
+          "offset": [ "10%", "30%" ],
+          "layer": 42,
+          "controls": [
+            {
+              "slot_border": {
+                "type": "image",
+                "texture": "$button_texture_border",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.4,
+                "layer": 42
+              }
+            },
+            {
+              "slot_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.6,
+                "layer": 41
+              }
+            }
+          ]
+        }
+      },
+      {
+        "progress_section": {
+          "type": "panel",
+          "size": [ "$progress_width", "$progress_height" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 42,
+          "controls": [
+            {
+              "progress_background": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.7,
+                "layer": 42
+              }
+            },
+            {
+              "progress_fill": {
+                "type": "image",
+                "texture": "$button_texture_hover",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "100%", "100%" ],
+                "color": "$color_cyan",
+                "alpha": 0.9,
+                "layer": 43,
+                "bindings": [
+                  {
+                    "binding_name": "#brewing_progress_percentage",
+                    "binding_name_override": "#clip_ratio"
+                  }
+                ]
+              }
+            },
+            {
+              "progress_arrow_icon": {
+                "type": "image",
+                "texture": "textures/ui/arrow.png",
+                "size": [ "$progress_height", "$progress_height" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "color": "$color_cyan",
+                "alpha": 0.8,
+                "layer": 44
+              }
+            }
+          ]
+        }
+      },
+      {
+        "output_triple_section": {
+          "type": "panel",
+          "size": [ "50%", "50%" ],
+          "anchor_from": "right",
+          "anchor_to": "right",
+          "offset": [ "-10%", "15%" ],
+          "layer": 42,
+          "controls": [
+            {
+              "output_row": {
+                "type": "grid",
+                "size": [ "100%", "100%" ],
+                "grid_dimensions": [ 3, 1 ],
+                "collection_name": "brewing_output",
+                "layer": 42,
+                "controls": [
+                  {
+                    "output_slot@brewing_stand.output_slot": {
+                      "size": [ "$slot_size", "$slot_size" ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "heat_indicator_section": {
+          "type": "panel",
+          "size": [ "80%c", 20 ],
+          "anchor_from": "bottom_center",
+          "anchor_to": "bottom_center",
+          "offset": [ 0, -10 ],
+          "layer": 42,
+          "controls": [
+            {
+              "heat_label": {
+                "type": "label",
+                "text": "HEAT LEVEL",
+                "color": "$color_cyan",
+                "size": [ "30%", "100%" ],
+                "anchor_from": "left",
+                "anchor_to": "left",
+                "font_size": "small",
+                "shadow": true,
+                "layer": 43
+              }
+            },
+            {
+              "heat_bar": {
+                "type": "image",
+                "texture": "$button_texture_default",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "65%", "100%" ],
+                "anchor_from": "right",
+                "anchor_to": "right",
+                "color": [ 0.1, 0.1, 0.15 ],
+                "alpha": 0.6,
+                "layer": 42
+              }
+            },
+            {
+              "heat_fill": {
+                "type": "image",
+                "texture": "$button_texture_hover",
+                "nineslice_size": "$button_nineslice",
+                "size": [ "65%", "100%" ],
+                "anchor_from": "right",
+                "anchor_to": "right",
+                "color": [ 1, 0.5, 0 ],
+                "alpha": 0.8,
+                "layer": 43,
+                "bindings": [
+                  {
+                    "binding_name": "#brewing_heat_percentage",
+                    "binding_name_override": "#clip_ratio"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "output_slot": {
+    "type": "panel",
+    "layer": 42,
+    "controls": [
+      {
+        "slot_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.4,
+          "layer": 42
+        }
+      },
+      {
+        "slot_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.1, 0.1, 0.15 ],
+          "alpha": 0.6,
+          "layer": 41
+        }
+      },
+      {
+        "slot_brewed_glow": {
+          "type": "image",
+          "texture": "$button_texture_hover",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.6,
+          "layer": 43,
+          "bindings": [
+            {
+              "binding_name": "#is_brewing_complete",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "header@brewing_stand.container_header": {
+          "layer": 40
+        }
+      },
+      {
+        "container@brewing_stand.container_panel": {
+          "layer": 38
+        }
+      }
+    ]
+  }
+}

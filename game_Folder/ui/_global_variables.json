@@ -1,0 +1,10 @@
+{
+  /* WOLF CLIENT BRAND COLORS */
+  "$color_cyan": [ 0, 1, 1 ],
+  "$color_dark_glass": [ 0.05, 0.05, 0.05, 0.4 ],
+  "$color_text_main": [ 1, 1, 1 ],
+  
+  /* GLOBAL SIZES */
+  "$wolf_header_height": 19,
+  "$wolf_btn_height": 20
+}

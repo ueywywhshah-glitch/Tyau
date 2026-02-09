@@ -1,0 +1,183 @@
+{
+  "namespace": "disconnect",
+
+  "disconnect_screen@common.base_screen": {
+    "$screen_bg_content": "disconnect.screen_background_wrapper",
+    "$screen_content": "disconnect.screen_content"
+  },
+
+  "screen_background_wrapper@wolf_bg.custom_bg_panel": {
+    "propagate_alpha": true,
+    "alpha": 0.65,
+    "layer": 1
+  },
+
+  "disconnect_panel": {
+    "type": "panel",
+    "size": [ "90%c", "70%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 38,
+    "controls": [
+      {
+        "panel_border": {
+          "type": "image",
+          "texture": "$button_texture_border",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": "$color_cyan",
+          "alpha": 0.7,
+          "layer": 40
+        }
+      },
+      {
+        "panel_background": {
+          "type": "image",
+          "texture": "$button_texture_default",
+          "nineslice_size": "$button_nineslice",
+          "size": [ "100%", "100%" ],
+          "color": [ 0.05, 0.05, 0.1 ],
+          "alpha": 0.8,
+          "layer": 39
+        }
+      },
+      {
+        "content_stack": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "calc(100% - 40px)", "calc(100% - 40px)" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 42,
+          "controls": [
+            {
+              "title_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "disconnect_title": {
+                      "type": "label",
+                      "text": "DISCONNECTED",
+                      "color": "$color_cyan",
+                      "size": [ "100%", "auto" ],
+                      "anchor_from": "top_center",
+                      "anchor_to": "top_center",
+                      "font_size": "large",
+                      "shadow": true,
+                      "layer": 43
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "reason_spacer": {
+                "type": "panel",
+                "size": [ "100%", 15 ],
+                "layer": 42
+              }
+            },
+            {
+              "reason_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "reason_label": {
+                      "type": "label",
+                      "text": "#disconnect_reason",
+                      "color": "$color_white",
+                      "size": [ "95%c", "auto" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_size": "small",
+                      "shadow": true,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#disconnect_reason_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "details_spacer": {
+                "type": "panel",
+                "size": [ "100%", 20 ],
+                "layer": 42
+              }
+            },
+            {
+              "details_section": {
+                "type": "panel",
+                "size": [ "100%", "auto" ],
+                "layer": 42,
+                "controls": [
+                  {
+                    "error_details": {
+                      "type": "label",
+                      "text": "#disconnect_details",
+                      "color": "$color_white_dim",
+                      "size": [ "95%c", "auto" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_size": "small",
+                      "shadow": true,
+                      "layer": 43,
+                      "bindings": [
+                        {
+                          "binding_name": "#disconnect_details_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "button_spacer": {
+                "type": "panel",
+                "size": [ "100%", 30 ],
+                "layer": 42
+              }
+            },
+            {
+              "button_section": {
+                "type": "grid",
+                "size": [ "100%", 50 ],
+                "grid_dimensions": [ 2, 1 ],
+                "collection_name": "disconnect_buttons",
+                "layer": 42,
+                "controls": [
+                  {
+                    "button_slot@common.simple_button": {
+                      "size": [ "calc(50% - 5px)", "100%" ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "disconnect@disconnect.disconnect_panel": {
+          "layer": 38
+        }
+      }
+    ]
+  }
+}
