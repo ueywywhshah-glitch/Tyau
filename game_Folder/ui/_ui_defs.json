@@ -1,6 +1,7 @@
 {
   "ui_defs": [
     "ui/_global_variables.json",
+    "ui/animations.json",
     "ui/common_buttons.json",
     "ui/main_menu.json",
     "ui/main_menu_background.json",
