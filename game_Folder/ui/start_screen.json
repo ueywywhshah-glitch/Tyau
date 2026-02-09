@@ -15,6 +15,7 @@
   "start_screen_content": {
     "type": "panel",
     "controls": [
+      { "wolf_logo@wolf_menu.wolf_logo_poster": {} },
       { "main_menu@start.main_buttons_stack_panel": {} },
       {
         "tag_container": {
@@ -81,6 +82,18 @@
     "size": [ "100%", 30 ],
     "controls": [
       { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } }
+    ]
+  },
+
+  "text_panel": {
+    "type": "panel",
+    "size": [ "100%-20px", 20 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": 10,
+    "controls": [
+      { "version@wolf_menu.wolf_version_label": {} },
+      { "copyright@wolf_menu.wolf_copyright_label": {} }
     ]
   }
 }

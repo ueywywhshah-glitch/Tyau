@@ -1,6 +1,8 @@
 {
   "ui_defs": [
+    "ui/_global_variables.json",
     "ui/common_buttons.json",
+    "ui/main_menu.json",
     "ui/main_menu_background.json",
     "ui/MENU/comps/RPC_BGCOMP.uicomponent",
     "ui/MENU/data/RPC_BGDATA.uidata",

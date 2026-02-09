@@ -1,0 +1,69 @@
+{
+  "namespace": "wolf_menu",
+
+  "wolf_logo_poster": {
+    "type": "panel",
+    "size": [ 180, 90 ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [ 0, 30 ],
+    "layer": 10,
+    "controls": [
+      {
+        "glow_layer": {
+          "type": "image",
+          "texture": "textures/gui/client/large_glow_soft",
+          "size": [ "100%", "100%" ],
+          "fill": true,
+          "layer": 1,
+          "alpha": 0.1,
+          "animations": [
+            "@wolf_animations.breathing_glow"
+          ]
+        }
+      },
+      {
+        "main_logo": {
+          "type": "image",
+          "texture": "textures/gui/client/title_logo_main",
+          "size": [ 180, 90 ],
+          "keep_ratio": true,
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  "wolf_version_label": {
+    "type": "label",
+    "text": "§bWolf Client [§fv1.0§b]",
+    "font_type": "smooth",
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [ 10, -10 ],
+    "layer": 10,
+    "color": [ 1, 1, 1 ],
+    "shadow": true
+  },
+
+  "wolf_copyright_label": {
+    "type": "label",
+    "text": "§7Wolf Client Project. All rights reserved.",
+    "font_type": "smooth",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [ -10, -10 ],
+    "layer": 10,
+    "color": [ 0.7, 0.7, 0.7 ],
+    "shadow": true
+  },
+
+  "minecraft_logo@vanilla_titles.minecraft_logo": {
+    "$logo_panel": "wolf_menu.wolf_logo_poster"
+  },
+
+  "edition_logo": {
+    "type": "image",
+    "visible": false
+  }
+}
