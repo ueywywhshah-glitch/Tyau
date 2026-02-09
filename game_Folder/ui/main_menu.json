@@ -21,7 +21,7 @@
           "clip_pixel_perfect": false,
           "color": "$color_cyan",
           "animations": [
-            "$animation_breathing_glow"
+            "@wolf_animations.breathing_glow"
           ]
         }
       },
