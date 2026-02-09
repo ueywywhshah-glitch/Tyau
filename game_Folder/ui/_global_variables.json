@@ -1,10 +1,55 @@
 {
-  /* WOLF CLIENT BRAND COLORS */
   "$color_cyan": [ 0, 1, 1 ],
-  "$color_dark_glass": [ 0.05, 0.05, 0.05, 0.4 ],
-  "$color_text_main": [ 1, 1, 1 ],
-  
-  /* GLOBAL SIZES */
-  "$wolf_header_height": 19,
-  "$wolf_btn_height": 20
+  "$color_cyan_secondary": [ 0.7, 1, 1 ],
+  "$color_white": [ 1, 1, 1 ],
+  "$color_white_dim": [ 0.8, 0.8, 0.8 ],
+  "$color_dark_bg": [ 0.05, 0.05, 0.1 ],
+  "$color_dark_panel": [ 0.1, 0.1, 0.15 ],
+  "$color_orange": [ 1, 0.5, 0 ],
+
+  "$glass_alpha": 0.15,
+  "$panel_bg_alpha": 0.15,
+  "$bg_alpha_subtle": 0.2,
+  "$header_bg_alpha": 0.4,
+  "$border_alpha_default": 0.4,
+  "$border_alpha_hover": 0.6,
+  "$overlay_alpha": 0.5,
+  "$container_alpha": 0.7,
+  "$immersion_alpha_premium": 0.8,
+  "$immersion_alpha_moody": 0.7,
+  "$immersion_alpha_slight": 0.75,
+
+  "$btn_height": 40,
+  "$header_height": 45,
+  "$back_button_width": 50,
+  "$back_button_height": 40,
+  "$button_size_small": 27,
+  "$safezone_width": "90%c",
+  "$safezone_height": "90%c",
+  "$container_width_standard": "85%c",
+  "$container_height_standard": "80%c",
+  "$container_width_compact": "80%c",
+  "$container_height_compact": "78%c",
+  "$slot_size": 32,
+  "$slot_spacing": 2,
+
+  "$spacing_gap": 4,
+  "$spacing_medium": 8,
+  "$spacing_large": 12,
+  "$spacing_xlarge": 20,
+
+  "$button_texture_default": "textures/gui/client/btn_default",
+  "$button_texture_hover": "textures/gui/client/btn_hover",
+  "$button_texture_pressed": "textures/gui/client/btn_pressed",
+  "$button_texture_border": "textures/gui/client/btn_border",
+  "$background_texture": "textures/ui/BACKGROUND/MENU_BG",
+
+  "$button_alpha_default": 0.25,
+  "$button_alpha_hover": 0.65,
+  "$button_alpha_pressed": 1.0,
+
+  "$button_size": [ "100%", "100%" ],
+  "$button_text": "",
+  "$button_content": "common_buttons.empty_panel",
+  "$button_nineslice": 4.0
 }
