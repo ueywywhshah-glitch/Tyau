@@ -34,28 +34,25 @@
     ]
   },
 
-  "wolf_version_label": {
+  "game_version_label": {
     "type": "label",
-    "text": "§bWolf Client [§fv1.0§b]",
-    "font_type": "smooth",
-    "anchor_from": "bottom_left",
-    "anchor_to": "bottom_left",
-    "offset": [ 10, -10 ],
-    "layer": 10,
-    "color": [ 1, 1, 1 ],
-    "shadow": true
+    "text": "#version",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [ -5, -5 ],
+    "layer": 15,
+    "color": [ 0.7, 0.7, 0.7 ]
   },
 
   "wolf_copyright_label": {
     "type": "label",
-    "text": "§7Wolf Client Project. All rights reserved.",
+    "text": "Copyright Mojang AB. Do not ditribute!.",
     "font_type": "smooth",
-    "anchor_from": "bottom_right",
-    "anchor_to": "bottom_right",
-    "offset": [ -10, -10 ],
-    "layer": 10,
-    "color": [ 0.7, 0.7, 0.7 ],
-    "shadow": true
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [ 5, -5 ],
+    "layer": 15,
+    "color": [ 0.7, 0.7, 0.7 ]
   },
 
   "minecraft_logo@vanilla_titles.minecraft_logo": {
