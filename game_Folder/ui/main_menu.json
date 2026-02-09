@@ -16,9 +16,12 @@
           "size": [ "100%", "100%" ],
           "fill": true,
           "layer": 1,
-          "alpha": 0.1,
+          "alpha": 0.35,
+          "bilinear": true,
+          "clip_pixel_perfect": false,
+          "color": "$color_cyan",
           "animations": [
-            "@wolf_animations.breathing_glow"
+            "$animation_breathing_glow"
           ]
         }
       },
@@ -28,7 +31,10 @@
           "texture": "textures/gui/client/title_logo_main",
           "size": [ 180, 90 ],
           "keep_ratio": true,
-          "layer": 2
+          "layer": 2,
+          "bilinear": true,
+          "clip_pixel_perfect": false,
+          "color": [ 1.1, 1.1, 1.1 ]
         }
       }
     ]

@@ -53,7 +53,7 @@
   "$button_content": "common_buttons.empty_panel",
   "$button_nineslice": 4.0,
 
-  "@wolf_animations.breathing_glow": {
+  "$animation_breathing_glow": {
     "anim_type": "alpha",
     "easing": "in_out_sine",
     "duration": 2.0,
