@@ -82,16 +82,4 @@
     "controls": [
       { "b@common_buttons.simple_button": { "size": [ "100%", "100%" ] } }
     ]
-  },
-
-  "text_panel": {
-    "type": "panel",
-    "size": [ "100%-20px", 20 ],
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "controls": [
-      { "v": { "type": "label", "text": "#version", "anchor_from": "bottom_right", "anchor_to": "bottom_right", "bindings": [ { "binding_name": "#version" } ] } },
-      { "c": { "type": "label", "text": "©Mojang AB", "anchor_from": "bottom_left", "anchor_to": "bottom_left" } }
-    ]
   }
-}
